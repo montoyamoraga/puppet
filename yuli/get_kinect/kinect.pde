@@ -15,27 +15,41 @@ We take 11 joints from the kinect, which are as follows
  10: ShoulderRight;
  */
 
+//import libraries for kinect2
 import KinectPV2.KJoint;
 import KinectPV2.*;
 
+
+//declare new kinect object
 KinectPV2 kinect;
 
+//declare new array for joints
 KJoint[] joints;
+
+//declare new int for index of current joint
 int trailingJointIndex;
 
+//declare array for storing the skeletons
 ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
+
+//declare array for storing the joint positions
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
 //we need 11 of all the kinect joints
 int jointsNum = 10;
+//WHAT IS THIS?
 int kinectScaling = 500;
 
-
+//function for setting up the kinect
 void setupKinect() {
+  //constructor method of KinectPV2 class
   kinect = new KinectPV2(this);
+  //enable 3D skeleton
   kinect.enableSkeleton3DMap(true);
+  //initialize the streaming of data
   kinect.init();
 }
+
 
 void updateKinectSkeletons() {
 
