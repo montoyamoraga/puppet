@@ -19,7 +19,6 @@ We take 11 joints from the kinect, which are as follows
 import KinectPV2.KJoint;
 import KinectPV2.*;
 
-
 //declare new kinect object
 KinectPV2 kinect;
 
@@ -60,13 +59,11 @@ void updateKinectSkeletons() {
   //flip the x positions, so we can perform in between the Kinect and the wall
   rotateY(PI);
 
-
   skeletonArray = kinect.getSkeleton3d();
   if (skeletonArray.size() > 0) {
     KSkeleton skeleton = (KSkeleton) skeletonArray.get(0);
     if (skeleton.isTracked()) {
       joints = skeleton.getJoints();      
-
 
       // Get the index number for the joint
       //each index represents one joint
@@ -82,11 +79,6 @@ void updateKinectSkeletons() {
       while (trailingJointPositions.size()>(jointsNum+1)) {
         trailingJointPositions.remove(0);
       }
-
-      //Draw all the joints
-      stroke(255);
-      strokeWeight(5);
-      drawJoints();
     }
   }
   popMatrix();
@@ -121,51 +113,4 @@ int getTrailingJointIndex(int index) {
   } else {
     return 5;
   }
-}
-
-
-
-void drawJoint(int jointType) {
-  KJoint joint = joints[jointType];
-  PVector jointPosition = joint.getPosition();
-  point(jointPosition.x, jointPosition.y, jointPosition.z);
-}
-
-void drawJoints() {
-  //Bust
-  drawJoint(KinectPV2.JointType_Head);
-  drawJoint(KinectPV2.JointType_Neck);
-  drawJoint(KinectPV2.JointType_SpineShoulder);
-
-  //Torso
-  drawJoint(KinectPV2.JointType_SpineMid);
-  drawJoint(KinectPV2.JointType_SpineBase);
-
-  // Right Arm    
-  drawJoint(KinectPV2.JointType_ShoulderRight);
-  drawJoint(KinectPV2.JointType_ElbowRight);
-  drawJoint(KinectPV2.JointType_WristRight);
-  drawJoint(KinectPV2.JointType_HandRight);
-  drawJoint(KinectPV2.JointType_HandTipRight);
-  drawJoint(KinectPV2.JointType_ThumbRight);
-
-  // Left Arm
-  drawJoint(KinectPV2.JointType_ShoulderLeft);
-  drawJoint(KinectPV2.JointType_ElbowLeft);
-  drawJoint(KinectPV2.JointType_WristLeft);
-  drawJoint(KinectPV2.JointType_HandLeft);
-  drawJoint(KinectPV2.JointType_HandTipLeft);
-  drawJoint(KinectPV2.JointType_ThumbLeft);
-
-  // Right Leg
-  drawJoint(KinectPV2.JointType_HipRight);
-  drawJoint(KinectPV2.JointType_KneeRight);
-  drawJoint(KinectPV2.JointType_AnkleRight);
-  drawJoint(KinectPV2.JointType_FootRight);
-
-  // Left Leg
-  drawJoint(KinectPV2.JointType_HipLeft);
-  drawJoint(KinectPV2.JointType_KneeLeft);
-  drawJoint(KinectPV2.JointType_AnkleLeft);
-  drawJoint(KinectPV2.JointType_FootLeft);
 }
