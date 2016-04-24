@@ -1,5 +1,3 @@
-
-
 /*
 We take 11 joints from the kinect, which are as follows
  0: HandLeft;

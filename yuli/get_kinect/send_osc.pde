@@ -7,6 +7,28 @@ OscP5 oscP5;
 NetAddress oscToMax;
 NetAddress oscToProcessing;
 
+//declare strings for sending messages
+String[] oscJoints = {
+  "/hand_left", 
+  "/hand_right", 
+  "/foot_left", 
+  "/foot_right", 
+  "/head", 
+  "/spine_mid", 
+  "/spine_base", 
+  "/knee_left", 
+  "/knee_right", 
+  "/shoulder_left", 
+  "/shoulder_right"
+};
+
+//declare strings for sending messages
+String[] oscPos = {
+  "/x", 
+  "/y", 
+  "/z"
+};
+
 void setupOSC() {
 
   //receive
@@ -21,14 +43,19 @@ void setupOSC() {
    * send messages back to this sketch.
    */
   //send
-  oscToMax = new NetAddress("localhost", 6666);
+  oscToMax = new NetAddress("localhost", 1989);
 }
 
 void sendToMax() {
 
-  String message = "whatever";
-
-  OscMessage myMessage = new OscMessage(message);
-  myMessage.add(50);
-  oscP5.send(myMessage, oscToMax);
+  //for (int i = 0; i < trailingJointPositions.size(); i++) {
+  for (int i = 0; i < 11; i++) {
+    for (int j = 0; j < 3; j++) {
+      String headers = oscJoints[i] + oscPos[j];
+      OscMessage sendingMessage = new OscMessage(headers);
+      //OscMessage myMessage = new OscMessage(oscJoints[i]);
+      sendingMessage.add(random(50));
+      oscP5.send(sendingMessage, oscToMax);
+    }
+  }
 }
