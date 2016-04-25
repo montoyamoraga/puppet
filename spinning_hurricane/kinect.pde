@@ -28,7 +28,6 @@ ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 int jointsNum = 11;
 int kinectScaling = 500;
 
-
 void setupKinect() {
   kinect = new KinectPV2(this);
   kinect.enableSkeleton3DMap(true);
@@ -51,7 +50,6 @@ void updateKinectSkeletons() {
     if (skeleton.isTracked()) {
       joints = skeleton.getJoints();      
 
-
       // Get the index number for the joint
       //each index represents one joint
       for (int i = 0; i<jointsNum; i++) {
@@ -72,8 +70,6 @@ void updateKinectSkeletons() {
   }
   popMatrix();
 }
-
-
 
 int getTrailingJointIndex(int index) {
 

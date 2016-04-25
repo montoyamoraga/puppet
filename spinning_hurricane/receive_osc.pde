@@ -4,8 +4,6 @@ import netP5.*;
 
 //declare objects for communication
 OscP5 oscP5;
-NetAddress oscToMax;
-NetAddress oscToProcessing;
 
 //declare strings for sending messages
 String[] oscJoints = {
@@ -32,18 +30,10 @@ String[] oscPos = {
 void setupOSC() {
 
   //receive
-  //start oscP5, listening for incoming messages at port 5555
-  oscP5 = new OscP5(this, 5555);
-
-  /* myRemoteLocation is a NetAddress. a NetAddress  takes 2 parameters,
-   * an ip address and a port number. myRemoteLocation is used as parameter in
-   * oscP5.send() when sending osc packets to another computer, device, 
-   * application. usage see below. for testing purposes the listening port
-   * and the port of the remote location address are the same, hence you will
-   * send messages back to this sketch.
-   */
-  //send
-  oscToMax = new NetAddress(macbook_receive, 1989);
+  //start oscP5, listening for incoming messages at port 1993
+  //oscP5 = new OscP5(this, 1993);
+  oscP5 = new OscP5(this, macbook_aaron, yuliIn, OscP5.TCP);
+ 
 }
 
 void receiveOSC() {
@@ -59,7 +49,15 @@ void receiveOSC() {
       } else if (j == 2) {
         sendingMessage.add(trailingJointPositions.get(i).z);
       }
-      oscP5.send(sendingMessage, oscToMax);
+     
     }
   }
+}
+
+void oscEvent(OscMessage theOscMessage) {
+  /* print the address pattern and the typetag of the received OscMessage */
+  //print("### received an osc message.");
+  //print(" addrpattern: "+theOscMessage.addrPattern());
+  //println(" typetag: "+theOscMessage.typetag());
+ println(theOscMessage.get(0).intValue(), theOscMessage.get(1).intValue());
 }

@@ -3,8 +3,11 @@
 //by yuli cai, aaron montoya donald shorter 
 //april 2016
 
-//visuals patch
-String macbook_receive = "172.16.221.149";
+//IP address of aaron's macbook
+String macbook_aaron = "172.16.217.203";
+
+//port for receving
+int yuliIn = 1993;
 
 //Particle[] particles = new Particle[10];
 ArrayList<Particle> particles = new ArrayList<Particle>();
@@ -16,10 +19,13 @@ int initParticleNum = 10;
 int lowSpeedCount = 0;
 float speedThreshold = 40;
 
+PVector pleftHand = new PVector(0, 0, 0);
+PVector leftHand = new PVector(0, 0, 0);
+
 void setup() {
   //size(640, 360, P3D);
   fullScreen(P3D);
-  setupKinect();
+  //setupKinect();
 
   for ( int i = 0; i< initParticleNum; i++) {
     PVector pos = new PVector(random(0, width), random(0, height), random(-100, 100));
@@ -28,15 +34,16 @@ void setup() {
   s = new Sun(0, 0, 0);
 }
 
-PVector pleftHand = new PVector(0, 0, 0);
-PVector leftHand = new PVector(0, 0, 0);
 void draw() {
-  
+
   receiveOSC();
 
   background(0);
-  updateKinectSkeletons();
+  //updateKinectSkeletons();
+  //something();
+}
 
+void something() {
   //get data from kinect: left hand pos-speed
   if (trailingJointPositions.size()>0) {
     leftHand = trailingJointPositions.get(1);
@@ -82,8 +89,6 @@ void draw() {
   } else if (lHandSpeed<speedThreshold) {
     lowSpeedCount++;
   }
-
-
 
   s.location = new PVector(leftHand.x, leftHand.y);
   for (Particle p : particles) {
