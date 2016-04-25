@@ -33,7 +33,7 @@ ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
 //we need 11 of all the kinect joints
-int jointsNum = 10;
+int jointsNum = 11;
 //WHAT IS THIS?
 int kinectScaling = 500;
 

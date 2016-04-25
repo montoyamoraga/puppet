@@ -3,6 +3,8 @@
 //by yuli cai, aaron montoya donald shorter 
 //april 2016
 
+String macbook_receive = "172.16.221.149";
+
 //setup loop
 void setup() {
 
@@ -11,7 +13,7 @@ void setup() {
   size(200, 200, P3D);
 
   //function for setting up the kinect
-  //setupKinect();
+  setupKinect();
 
   //setup OSC server for communication
   setupOSC();
@@ -24,12 +26,13 @@ void setup() {
 void draw() {
 
   //function for updating kinect data
-  //updateKinectSkeletons();
+  updateKinectSkeletons();
 
-  sendToMax();
-
-  //print an array of raw data
-  //the structure is an array of 11 arrays
-  //each array has 3 number represents the xyz position
-  //println(trailingJointPositions);
+  //check if the array is being generated
+  //it is only generated when there is a skeleton being tracked
+  if (trailingJointPositions.size() > 0) {
+    //send the data to an external Max patch
+    sendToMax();
+  }
+  
 }

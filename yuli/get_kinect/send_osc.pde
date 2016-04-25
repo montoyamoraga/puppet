@@ -43,18 +43,22 @@ void setupOSC() {
    * send messages back to this sketch.
    */
   //send
-  oscToMax = new NetAddress("localhost", 1989);
+  oscToMax = new NetAddress(macbook_receive, 1989);
 }
 
 void sendToMax() {
-
   //for (int i = 0; i < trailingJointPositions.size(); i++) {
-  for (int i = 0; i < 11; i++) {
+  for (int i = 0; i < jointsNum; i++) {
     for (int j = 0; j < 3; j++) {
       String headers = oscJoints[i] + oscPos[j];
       OscMessage sendingMessage = new OscMessage(headers);
-      //OscMessage myMessage = new OscMessage(oscJoints[i]);
-      sendingMessage.add(random(50));
+      if (j == 0) {
+        sendingMessage.add(trailingJointPositions.get(i).x);
+      } else if (j == 1) {
+        sendingMessage.add(trailingJointPositions.get(i).y);
+      } else if (j == 2) {
+        sendingMessage.add(trailingJointPositions.get(i).z);
+      }
       oscP5.send(sendingMessage, oscToMax);
     }
   }

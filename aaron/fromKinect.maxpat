@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 92.0, 103.0, 1006.0, 661.0 ],
+		"rect" : [ 125.0, 79.0, 1060.0, 681.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -700,7 +700,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 13.0, 20.0, 135.0, 22.0 ],
+					"patching_rect" : [ 50.0, 6.0, 135.0, 22.0 ],
 					"style" : "",
 					"text" : "udpreceive 1989 cnmat"
 				}
