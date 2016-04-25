@@ -1,12 +1,3 @@
-//import syphon library
-import codeanticode.syphon.*;
-
-//declare canvas object
-PGraphics canvas;
-
-//declare new syphon server
-SyphonServer server;
-
 //Particle[] particles = new Particle[10];
 ArrayList<Particle> particles = new ArrayList<Particle>();
 Sun s;
@@ -18,16 +9,8 @@ int lowSpeedCount = 0;
 float speedThreshold = 40;
 
 void setup() {
-
-  //declare dimensions of the canvas
-  size(640, 360, P3D);
-
-  //declare 
-  canvas = createGraphics(800, 500, P3D);
-
-  server = new SyphonServer(this, "spinning_hurricane");
-
-  //fullScreen(P3D);
+  //size(640, 360, P3D);
+  fullScreen(P3D);
   setupKinect();
 
   for ( int i = 0; i< initParticleNum; i++) {
@@ -39,16 +22,18 @@ void setup() {
 
 PVector pleftHand = new PVector(0, 0, 0);
 PVector leftHand = new PVector(0, 0, 0);
-
-
 void draw() {
   //mouse mode
 
+  PVector mousePos = new PVector(mouseX, mouseY, 0);
+  PVector pmousePos = new PVector(pmouseX, pmouseY, 0);
+  PVector mouseSpeed = PVector.sub(mousePos, pmousePos);
+  float mSpeed = mouseSpeed.mag();
+  PVector mDir = mouseSpeed.normalize();
 
-  canvas.beginDraw();
 
-  canvas.background(0);
-  
+
+  background(0);
   updateKinectSkeletons();
 
   //get data from kinect: left hand pos-speed
@@ -67,7 +52,9 @@ void draw() {
 
   //setup 3D scene
   sphereDetail(8);
-  canvas.lights();
+  lights();
+  //translate(width/2, height/2);
+  rotateY(angle);
   pushMatrix();
   translate(width/2, height/2, 40);
   //fill(200,20);
@@ -109,12 +96,6 @@ void draw() {
     p.run();
   }
   s.display();
-  
-  canvas.endDraw();
-  
-  server.sendImage(canvas);
-  
-  canvas.background(255, 0, 0, 255);
 
   //update previous left hand position
   pleftHand = leftHand;

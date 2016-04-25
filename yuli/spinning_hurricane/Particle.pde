@@ -69,6 +69,7 @@ class Particle {
 
 
   void run() {
+
     display();
     bounds();
     update();
