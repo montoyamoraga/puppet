@@ -3,7 +3,7 @@
 //by yuli cai, aaron montoya donald shorter 
 //april 2016
 
-String macbook_receive = "172.16.221.149";
+String macbook_aaron = "172.16.221.149";
 
 //setup loop
 void setup() {

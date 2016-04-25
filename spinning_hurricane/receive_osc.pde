@@ -46,7 +46,7 @@ void setupOSC() {
   oscToMax = new NetAddress(macbook_receive, 1989);
 }
 
-void sendToMax() {
+void receiveOSC() {
   //for (int i = 0; i < trailingJointPositions.size(); i++) {
   for (int i = 0; i < jointsNum; i++) {
     for (int j = 0; j < 3; j++) {
