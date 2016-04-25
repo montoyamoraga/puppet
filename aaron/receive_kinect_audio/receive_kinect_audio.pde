@@ -3,8 +3,6 @@
 //by yuli cai, aaron montoya donald shorter 
 //april 2016
 
-
-
 void setup() {
 
   //receive
