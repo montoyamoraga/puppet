@@ -67,9 +67,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 243.0, 110.0, 167.0, 22.0 ],
+					"patching_rect" : [ 243.0, 110.0, 181.0, 22.0 ],
 					"style" : "",
-					"text" : "udpsend 172.16.222.53 1994"
+					"text" : "udpsend 172.16.255.221 1994"
 				}
 
 			}

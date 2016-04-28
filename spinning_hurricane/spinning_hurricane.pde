@@ -55,6 +55,8 @@ void draw() {
 
   updateValues();
   following();
+  
+  sendToWekinator();
 }
 
 void updateValues() {

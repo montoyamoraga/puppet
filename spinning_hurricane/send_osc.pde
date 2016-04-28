@@ -3,12 +3,12 @@
 NetAddress p5toWekinator;
 
 //declare strings for sending messages
-String oscWekinatorFlag = "/wek/inputs/left_hand_speed";
+String oscWekinatorFlag = "/wek/inputs/";
 
 void sendToWekinator() {
 
 
-      String header = oscoscWekinatorFlag;
+      String header = oscWekinatorFlag;
       
       OscMessage toWekinator = new OscMessage(header);
       toWekinator.add(lHandSpeed);
