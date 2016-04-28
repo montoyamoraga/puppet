@@ -4,10 +4,16 @@
 //april 2016
 
 //IP address of aaron's macbook
-String macbook_aaron = "172.16.217.203";
+String macbook_aaron = "172.17.47.97";
 
 //port for receving
-int yuliIn = 1993;
+int yuliIn = 1994;
+
+boolean receivedOSC;
+
+float[] xPos = new float[11];
+float[] yPos = new float[11];
+float[] zPos = new float[11];
 
 //Particle[] particles = new Particle[10];
 ArrayList<Particle> particles = new ArrayList<Particle>();
@@ -19,28 +25,51 @@ int initParticleNum = 10;
 int lowSpeedCount = 0;
 float speedThreshold = 40;
 
+
 PVector pleftHand = new PVector(0, 0, 0);
 PVector leftHand = new PVector(0, 0, 0);
 
 void setup() {
-  //size(640, 360, P3D);
+ // size(640, 360, P3D);
   fullScreen(P3D);
   //setupKinect();
+  setupOSC();
 
   for ( int i = 0; i< initParticleNum; i++) {
     PVector pos = new PVector(random(0, width), random(0, height), random(-100, 100));
     particles.add(new Particle(random(1, 2), pos));
   }
+
   s = new Sun(0, 0, 0);
+
+  receivedOSC = false;
 }
 
 void draw() {
 
-  receiveOSC();
-
   background(0);
   //updateKinectSkeletons();
-  //something();
+
+
+  updateValues();
+  something();
+}
+
+void updateValues() {
+
+  if (receivedOSC) {
+
+    //delete old values
+    while (trailingJointPositions.size() > 0) {
+      trailingJointPositions.remove(0);
+    }
+
+    //retrieve from OSC
+    for (int i = 0; i < 11; i++) {
+      PVector aux = new PVector(xPos[i], yPos[i], zPos[i]);
+      trailingJointPositions.add(aux);
+    }
+  }
 }
 
 void something() {
@@ -49,6 +78,8 @@ void something() {
     leftHand = trailingJointPositions.get(1);
     leftHand.mult(kinectScaling);
     leftHand.y = height/2 - leftHand.y;
+    
+    //leftHand.x *= -1;
     leftHand.x +=width/2;
   }
 

@@ -23,7 +23,7 @@ class Sun {
     noFill();
     pushMatrix();
     translate(location.x, location.y);
-    sphere(mass);
+    sphere(20);
     popMatrix();
   }
 }

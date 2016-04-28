@@ -32,7 +32,6 @@ class Particle {
     popMatrix();
   }
 
-
   void applyForce(PVector _force) {
     PVector f = PVector.div(_force, mass);
     acc.add(f);
