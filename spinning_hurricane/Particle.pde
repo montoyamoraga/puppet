@@ -61,16 +61,15 @@ class Particle {
     if (loc.x > width || loc.x < 0) {
       vel.x *= -1;
     }
-    if(loc.z>100 || loc.z < -20){
-     vel.z *= -1; 
+    if (loc.z>100 || loc.z < -20) {
+      vel.z *= -1;
     }
   }
 
 
   void run() {
-
+    update();
     display();
     bounds();
-    update();
   }
 }

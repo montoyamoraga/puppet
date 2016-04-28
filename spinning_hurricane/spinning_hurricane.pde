@@ -28,9 +28,10 @@ float speedThreshold = 40;
 
 PVector pleftHand = new PVector(0, 0, 0);
 PVector leftHand = new PVector(0, 0, 0);
+boolean posMiddle = false;
 
 void setup() {
- // size(640, 360, P3D);
+  // size(640, 360, P3D);
   fullScreen(P3D);
   //setupKinect();
   setupOSC();
@@ -49,10 +50,11 @@ void draw() {
 
   background(0);
   //updateKinectSkeletons();
-
+  spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 20);
+  sphereDetail(8); 
 
   updateValues();
-  something();
+  following();
 }
 
 void updateValues() {
@@ -72,27 +74,24 @@ void updateValues() {
   }
 }
 
-void something() {
+void following() {
   //get data from kinect: left hand pos-speed
   if (trailingJointPositions.size()>0) {
     leftHand = trailingJointPositions.get(1);
     leftHand.mult(kinectScaling);
     leftHand.y = height/2 - leftHand.y;
-    
+
     //leftHand.x *= -1;
     leftHand.x +=width/2;
   }
 
-  //kinect mode
+  //kinect mode, hand position
   PVector leftHandSpeed = PVector.sub(leftHand, pleftHand);
   float lHandSpeed = leftHandSpeed.mag();
   // around 1-150
-  println(lHandSpeed);
+  //println(lHandSpeed);
 
   //setup 3D scene
-  sphereDetail(8);
-  lights();
-  //translate(width/2, height/2);
   rotateY(angle);
   pushMatrix();
   translate(width/2, height/2, 40);
@@ -129,6 +128,10 @@ void something() {
         force.mult(-1);
       }
     }
+
+    if (!posMiddle()) {
+      force.mult(0);
+    }
     p.applyForce(force);
     p.run();
   }
@@ -136,4 +139,15 @@ void something() {
 
   //update previous left hand position
   pleftHand = leftHand;
+}
+
+//function to detect whether the dancer is in the middle
+//right now using left hand data 
+boolean posMiddle() {
+  if (leftHand.x<=200) {
+    posMiddle = true;
+  } else {
+    posMiddle = false;
+  }
+  return posMiddle;
 }

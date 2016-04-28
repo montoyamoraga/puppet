@@ -6,7 +6,7 @@ class Sun {
   Sun(float x, float y, float z) {
     location = new PVector(x, y, z);
     mass = 80;
-    G = 10.0;
+    G = 20.0;
   }
 
   PVector getAttractForce( Particle p) {
