@@ -1,0 +1,10 @@
+executables/*
+wekinator_installers/*
+kadenze_essentials*/*
+all_source*
+
+# openframeworks stuff
+*.pbxuser
+*.app*
+*.DS_*
+*.xcworkspacedata

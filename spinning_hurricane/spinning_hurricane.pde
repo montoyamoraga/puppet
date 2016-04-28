@@ -24,7 +24,7 @@ int initParticleNum = 10;
 
 int lowSpeedCount = 0;
 float speedThreshold = 40;
-
+int middleThreshold = width/2;
 
 PVector pleftHand = new PVector(0, 0, 0);
 PVector leftHand = new PVector(0, 0, 0);
@@ -144,7 +144,7 @@ void following() {
 //function to detect whether the dancer is in the middle
 //right now using left hand data 
 boolean posMiddle() {
-  if (leftHand.x<=200) {
+  if (leftHand.x<=middleThreshold) {
     posMiddle = true;
   } else {
     posMiddle = false;
