@@ -3,7 +3,11 @@ import oscP5.*;
 import netP5.*;
 
 //declare objects for communication
-OscP5 oscP5;
+OscP5 rawData;
+OscP5 visualsWekinator;
+
+//variables for storing wekinator output
+int wekinatorSpeedMode;
 
 //declare strings for sending messages
 String[] oscJoints = {
@@ -30,9 +34,23 @@ String[] oscPos = {
 void setupOSC() {
 
   //receive
-  //start oscP5, listening for incoming messages at port 1993
-  oscP5 = new OscP5(this, 1994);
-  // oscP5 = new OscP5(this, macbook_aaron, yuliIn, OscP5.TCP);
+  //start oscP5, listening for incoming messages at port 1994
+  rawData = new OscP5(this, 1994);
+  
+  //start oscP5 for communicating with wekinator
+  //use port 12000 for listening
+  visualsWekinator = new OscP5(this, 12000);
+  
+  /* myRemoteLocation is a NetAddress. a NetAddress  takes 2 parameters,
+   * an ip address and a port number. myRemoteLocation is used as parameter in
+   * oscP5.send() when sending osc packets to another computer, device, 
+   * application. usage see below. for testing purposes the listening port
+   * and the port of the remote location address are the same, hence you will
+   * send messages back to this sketch.
+   */
+  //send
+  oscToMax = new NetAddress(localhost, 1989);
+  
 }
 
 void oscEvent(OscMessage theOscMessage) {
@@ -126,6 +144,11 @@ void oscEvent(OscMessage theOscMessage) {
     yPos[10] = theOscMessage.get(0).floatValue();
   } else if (theOscMessage.checkAddrPattern("/shoulder_right/z")) {
     zPos[10] = theOscMessage.get(0).floatValue();
+  }
+  
+  //wekinator handling
+  else if (theOscMessage.checkAddrPattern("/wek/outputs")) {
+    wekinatorSpeedMode = theOscMessage.get(0).intValue();
   }
 
   /* print the address pattern and the typetag of the received OscMessage */

@@ -73,7 +73,8 @@ void updateValues() {
     }
   }
 }
-
+PVector leftHandSpeed = new PVector();
+float lHandSpeed = 0.0;
 void following() {
   //get data from kinect: left hand pos-speed
   if (trailingJointPositions.size()>0) {
@@ -86,8 +87,8 @@ void following() {
   }
 
   //kinect mode, hand position
-  PVector leftHandSpeed = PVector.sub(leftHand, pleftHand);
-  float lHandSpeed = leftHandSpeed.mag();
+  leftHandSpeed = PVector.sub(leftHand, pleftHand);
+  lHandSpeed = leftHandSpeed.mag();
   // around 1-150
   //println(lHandSpeed);
 
