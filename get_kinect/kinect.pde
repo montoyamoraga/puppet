@@ -11,6 +11,7 @@ We take 10 joints from the kinect, which are as follows
  8: ThumbLeft
  9: ThumbRight
  */
+
 //import libraries for kinect2
 import KinectPV2.KJoint;
 import KinectPV2.*;
@@ -30,9 +31,10 @@ ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 //declare array for storing the joint positions
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
-//we need 10 of all the kinect joints
+//number of joints tracked by kinect
 int jointsNum = 10;
-//WHAT IS THIS?
+
+// factor for scaling measures
 int kinectScaling = 500;
 
 //function for setting up the kinect
@@ -45,11 +47,13 @@ void setupKinect() {
   kinect.init();
 }
 
+//get data from Kinect
+void getKinectData() {
 
-void updateKinectSkeletons() {
-
+  //translate coordinate system
   pushMatrix();
   translate(width/2, height/2, 0);
+  //scale measures
   scale(kinectScaling, kinectScaling, 1);
   rotateX(PI);
   //flip the x positions, so we can perform in between the Kinect and the wall

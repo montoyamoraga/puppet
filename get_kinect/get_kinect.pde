@@ -1,21 +1,21 @@
 //choreographic interventions
 //final project
 //by yuli cai, aaron montoya donald shorter 
-//april 2016
+//april-may 2016
 
 String macbook_aaron = "172.16.221.149";
 
 //setup loop
 void setup() {
 
-  //canvas 1024 px wide x 768 px high
+  //canvas 200 px wide x 200 px high
   //3D renderer
   size(200, 200, P3D);
 
   //function for setting up the kinect
   setupKinect();
 
-  //setup OSC server for communication
+  //setup OSC communication
   setupOSC();
 
   //green background
@@ -25,13 +25,13 @@ void setup() {
 //draw loop
 void draw() {
 
-  //function for updating kinect data
-  updateKinectSkeletons();
+  //get data from Kinect
+  getKinectData();
 
-  //check if the array is being generated
-  //it is only generated when there is a skeleton being tracked
+  //check if there is data
   if (trailingJointPositions.size() > 0) {
     //send the data to an external Max patch
+    //on another computer
     sendToMax();
   }
   
