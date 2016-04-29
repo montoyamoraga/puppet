@@ -50,29 +50,29 @@ void oscEvent(OscMessage theOscMessage) {
     yPos[5] = theOscMessage.get(0).floatValue();
   } else if (theOscMessage.checkAddrPattern("/hand_right/z")) {
     zPos[5] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/x")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_left/x")) {
     xPos[6] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/y")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_left/y")) {
     yPos[6] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/z")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_left/z")) {
     zPos[6] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/x")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_right/x")) {
     xPos[7] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/y")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_right/y")) {
     yPos[7] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/z")) {
+  } else if (theOscMessage.checkAddrPattern("/hand_tip_right/z")) {
     zPos[7] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/x")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_left/x")) {
     xPos[8] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/y")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_left/y")) {
     yPos[8] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_left/z")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_left/z")) {
     zPos[8] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/x")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_right/x")) {
     xPos[9] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/y")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_right/y")) {
     yPos[9] = theOscMessage.get(0).floatValue();
-  } else if (theOscMessage.checkAddrPattern("/hand_right/z")) {
+  } else if (theOscMessage.checkAddrPattern("/thumb_right/z")) {
     zPos[9] = theOscMessage.get(0).floatValue();
 
   }
