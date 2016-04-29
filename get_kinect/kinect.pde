@@ -1,18 +1,16 @@
 /*
-We take 11 joints from the kinect, which are as follows
- 0: HandLeft;
- 1: HandRight;
- 2: FootLeft;
- 3: FootRight;
- 4: Head;
- 5: SpineMid;
- 6: SpineBase;
- 7: KneeLeft;
- 8: KneeRight;
- 9: ShoulderLeft;
- 10: ShoulderRight;
+We take 10 joints from the kinect, which are as follows
+ 0: Head;
+ 1: SpineBase;
+ 2: KneeLeft;
+ 3: KneeRight;
+ 4: HandLeft;
+ 5: HandRight;
+ 6: HandTipLeft
+ 7: HandTipRight
+ 8: ThumbLeft
+ 9: ThumbRight
  */
-
 //import libraries for kinect2
 import KinectPV2.KJoint;
 import KinectPV2.*;
@@ -32,8 +30,8 @@ ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 //declare array for storing the joint positions
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
-//we need 11 of all the kinect joints
-int jointsNum = 11;
+//we need 10 of all the kinect joints
+int jointsNum = 10;
 //WHAT IS THIS?
 int kinectScaling = 500;
 
@@ -82,32 +80,43 @@ void updateKinectSkeletons() {
   popMatrix();
 }
 
-
-
 int getTrailingJointIndex(int index) {
 
+
+  /*
+We take 10 joints from the kinect, which are as follows
+   0: Head;
+   1: SpineBase;
+   2: KneeLeft;
+   3: KneeRight;
+   4: HandLeft;
+   5: HandRight;
+   6: HandTipLeft
+   7: HandTipRight
+   8: ThumbLeft
+   9: ThumbRight
+   */
+
   if (index == 0) {
-    return KinectPV2.JointType_HandLeft;
-  } else if (index == 1) {
-    return KinectPV2.JointType_HandRight;
-  } else if (index == 2) {
-    return KinectPV2.JointType_FootLeft;
-  } else if (index == 3) {
-    return KinectPV2.JointType_FootRight;
-  } else if (index == 4) {
     return KinectPV2.JointType_Head;
-  } else if (index == 5) {
-    return KinectPV2.JointType_SpineMid;
-  } else if (index == 6) {
+  } else if (index == 1) {
     return KinectPV2.JointType_SpineBase;
-  } else if (index == 7) {
+  } else if (index == 2) {
     return KinectPV2.JointType_KneeLeft;
-  } else if (index == 8) {
+  } else if (index == 3) {
     return KinectPV2.JointType_KneeRight;
+  } else if (index == 4) {
+    return KinectPV2.JointType_HandLeft;
+  } else if (index == 5) {
+    return KinectPV2.JointType_HandRight;
+  } else if (index == 6) {
+    return KinectPV2.JointType_HandTipLeft;
+  } else if (index == 7) {
+    return KinectPV2.JointType_HandTipRight;
+  } else if (index == 8) {
+    return KinectPV2.JointType_ThumbLeft;
   } else if (index == 9) {
-    return KinectPV2.JointType_ShoulderLeft;
-  } else if (index == 10) {
-    return KinectPV2.JointType_ShoulderRight;
+    return KinectPV2.JointType_ThumbRight;
   } else {
     return 5;
   }

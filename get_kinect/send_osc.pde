@@ -9,17 +9,16 @@ NetAddress oscToProcessing;
 
 //declare strings for sending messages
 String[] oscJoints = {
-  "/hand_left", 
-  "/hand_right", 
-  "/foot_left", 
-  "/foot_right", 
-  "/head", 
-  "/spine_mid", 
-  "/spine_base", 
+  "/head",
+  "/spine_base",
   "/knee_left", 
   "/knee_right", 
-  "/shoulder_left", 
-  "/shoulder_right"
+  "/hand_left", 
+  "/hand_right",
+  "/hand_tip_left", 
+  "/hand_tip_right",
+  "thumb_left",
+  "thumb_right"
 };
 
 //declare strings for sending messages
