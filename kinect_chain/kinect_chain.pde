@@ -98,6 +98,7 @@ void updateValues() {
 
 PVector leftHandPos() {
   if (trailingJointPositions.size()>0) {
+
     leftHand = trailingJointPositions.get(4);
    // leftHand.mult(kinectScaling);
     leftHand.y = height/2 - leftHand.y;

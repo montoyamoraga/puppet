@@ -82,10 +82,10 @@ void getKinectData() {
     }
   }
   popMatrix();
+  println(trailingJointPositions.get(8));
 }
 
 int getTrailingJointIndex(int index) {
-
 
   /*
 We take 10 joints from the kinect, which are as follows

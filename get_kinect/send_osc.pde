@@ -17,8 +17,8 @@ String[] oscJoints = {
   "/hand_right",
   "/hand_tip_left", 
   "/hand_tip_right",
-  "thumb_left",
-  "thumb_right"
+  "/thumb_left",
+  "/thumb_right"
 };
 
 //declare strings for sending messages
