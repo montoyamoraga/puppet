@@ -1,0 +1,14 @@
+@relation dataset
+
+@attribute ID numeric
+@attribute Time date 'yyyy/MM/dd HH:mm:ss:SSS'
+@attribute 'Training round' numeric
+@attribute leftHandX numeric
+@attribute leftHandY numeric
+@attribute leftHandTipX numeric
+@attribute leftHandTipY numeric
+@attribute thumbX numeric
+@attribute thumbY numeric
+@attribute outputs-1 {0,1,2}
+
+@data

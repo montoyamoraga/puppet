@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<OSCInputGroup>
+  <oscMessage>/wek/inputs</oscMessage>
+  <numInputs>6</numInputs>
+  <groupName>Inputs</groupName>
+  <inputNames>
+    <string>leftHandX</string>
+    <string>leftHandY</string>
+    <string>leftHandTipX</string>
+    <string>leftHandTipY</string>
+    <string>thumbX</string>
+    <string>thumbY</string>
+  </inputNames>
+</OSCInputGroup>

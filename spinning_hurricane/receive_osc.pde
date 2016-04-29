@@ -132,9 +132,6 @@ void oscEvent(OscMessage theOscMessage) {
     }
   }
 
-
-
-
   /* print the address pattern and the typetag of the received OscMessage */
   //println("### received an osc message.");
   //print(" addrpattern: "+theOscMessage.addrPattern());

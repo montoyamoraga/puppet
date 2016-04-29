@@ -8,11 +8,10 @@ String oscWekinatorFlag = "/wek/inputs/";
 void sendToWekinator() {
 
 
-      String header = oscWekinatorFlag;
-      
-      OscMessage toWekinator = new OscMessage(header);
-      toWekinator.add(lHandSpeed);
-      
-      visualsWekinator.send(toWekinator, p5toWekinator);
-    }
-  }
+  String header = oscWekinatorFlag;
+
+  OscMessage toWekinator = new OscMessage(header);
+  toWekinator.add(lHandSpeed);
+
+  visualsWekinator.send(toWekinator, p5toWekinator);
+}
