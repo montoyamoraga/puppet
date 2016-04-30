@@ -68,8 +68,8 @@ float lDisTipThumb() {
 PVector lHandToWorld = new PVector();
 PVector lHandToWorld() {
   lHandToWorld =new PVector(leftHand().x*kinectScaling,leftHand().y*kinectScaling, leftHand().z*kinectScaling);
-  lHandToWorld.y = - lHandToWorld.y;
-  lHandToWorld.x *= -1;
+  lHandToWorld.y = height/2- lHandToWorld.y;
+  //lHandToWorld.x *= -1;
   lHandToWorld.x += width/2;
   return lHandToWorld;
 }

@@ -18,7 +18,7 @@ ArrayList<Chain> chains = new ArrayList<Chain>();
 ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 
 //our chains number
-int chainNum = 10;
+int chainNum = 20;
 int gap = 0;
 
 //receving port
@@ -55,9 +55,9 @@ void setup() {
   // Initialize couple of chains
   //chain1 = new Chain(200, 20, 12, 0.2);
   for (int i = 0; i<chainNum; i++) {
-    float initxPos = i*gap;
+    float initxPos = 20+i*gap;
     //Chain(total length, numpoints, ellipse radius, strength, initial x, physics world)
-    chains.add(new Chain(200, 20, 12, 0.2, initxPos, physicWorlds.get(i)));
+    chains.add(new Chain(300, 20, 12, 0.2, initxPos, physicWorlds.get(i)));
   }
 
   setupOSCMax();
