@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 74.0, 93.0, 1165.0, 554.0 ],
+		"rect" : [ 71.0, 179.0, 1165.0, 554.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -79,6 +79,7 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-109",
@@ -115,7 +116,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 370.0, 100.0, 41.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -166,9 +167,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 205.0, 100.0, 41.0, 22.0 ],
+									"patching_rect" : [ 205.0, 100.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -231,9 +232,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 80.0, 100.0, 41.0, 22.0 ],
+									"patching_rect" : [ 80.0, 100.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -508,7 +509,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 197.0, 84.0, 48.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -572,9 +573,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 135.5, 84.0, 41.0, 22.0 ],
+									"patching_rect" : [ 135.5, 84.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -637,9 +638,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 58.5, 84.0, 41.0, 22.0 ],
+									"patching_rect" : [ 58.5, 84.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -927,7 +928,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 269.0, 100.0, 41.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -978,9 +979,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 138.0, 100.0, 41.0, 22.0 ],
+									"patching_rect" : [ 138.0, 100.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}
@@ -1043,9 +1044,9 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 61.0, 105.0, 41.0, 22.0 ],
+									"patching_rect" : [ 61.0, 104.0, 34.0, 22.0 ],
 									"style" : "",
-									"text" : "$1 20"
+									"text" : "$1 5"
 								}
 
 							}

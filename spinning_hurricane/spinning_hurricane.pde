@@ -6,7 +6,7 @@
 //IP address of aaron's macbook
 String macbook_aaron = "172.17.47.97";
 
-//port for receving
+//port for receiving
 int yuliIn = 1994;
 
 boolean receivedOSC;

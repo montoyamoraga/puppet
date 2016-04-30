@@ -4,7 +4,8 @@ import netP5.*;
 
 //declare objects for communication
 OscP5 oscP5;
-NetAddress oscToMax;
+NetAddress oscToAaron;
+NetAddress oscToYuli;
 NetAddress oscToProcessing;
 
 //declare strings for sending messages
@@ -42,10 +43,11 @@ void setupOSC() {
    * send messages back to this sketch.
    */
   //send
-  oscToMax = new NetAddress(macbook_aaron, 1989);
+  oscToAaron = new NetAddress(macbook_aaron, 1989);
+  oscToYuli = new NetAddress(macbook_yuli, 1989);
 }
 
-void sendToMax() {
+void sendToAaron() {
   //for (int i = 0; i < trailingJointPositions.size(); i++) {
   for (int i = 0; i < jointsNum; i++) {
     for (int j = 0; j < 3; j++) {
@@ -58,7 +60,25 @@ void sendToMax() {
       } else if (j == 2) {
         sendingMessage.add(trailingJointPositions.get(i).z);
       }
-      oscP5.send(sendingMessage, oscToMax);
+      oscP5.send(sendingMessage, oscToAaron);
+    }
+  }
+}
+
+void sendToYuli() {
+  //for (int i = 0; i < trailingJointPositions.size(); i++) {
+  for (int i = 0; i < jointsNum; i++) {
+    for (int j = 0; j < 3; j++) {
+      String headers = oscJoints[i] + oscPos[j];
+      OscMessage sendingMessage = new OscMessage(headers);
+      if (j == 0) {
+        sendingMessage.add(trailingJointPositions.get(i).x);
+      } else if (j == 1) {
+        sendingMessage.add(trailingJointPositions.get(i).y);
+      } else if (j == 2) {
+        sendingMessage.add(trailingJointPositions.get(i).z);
+      }
+      oscP5.send(sendingMessage, oscToYuli);
     }
   }
 }
