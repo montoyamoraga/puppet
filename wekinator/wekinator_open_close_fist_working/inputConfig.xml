@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<OSCInputGroup>
+  <oscMessage>/wek/inputs</oscMessage>
+  <numInputs>3</numInputs>
+  <groupName>Inputs</groupName>
+  <inputNames>
+    <string>lDisHandTip</string>
+    <string>lDisHandThumb</string>
+    <string>lDisTipThumb</string>
+  </inputNames>
+</OSCInputGroup>

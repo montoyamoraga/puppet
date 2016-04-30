@@ -17,14 +17,15 @@ ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 int chainNum = 10;
 
 //port for receving
-int yuliIn = 1994;
+//1995 for smoothed data
+//1994 for raw data
+int yuliIn = 1995;
 boolean receivedOSC;
 
 float[] xPos = new float[10];
 float[] yPos = new float[10];
 float[] zPos = new float[10];
 
-PVector leftHand = new PVector();
 
 
 void setup() {
@@ -47,23 +48,25 @@ void setup() {
     //Chain(total length, numpoints, ellipse radius, strength, initial x, physics world)
     chains.add(new Chain(200, 20, 12, 0.2, initxPos, physicWorlds.get(i)));
   }
-  
+
   setupOSC();
-  
 }
 
 void draw() {
   background(255);
+  fill(255, 0, 0);
+  ellipse(leftThumb().x*kinectScaling, leftThumb().y*kinectScaling, 20, 20);
+  ellipse(leftTip().x*kinectScaling, leftTip().y*kinectScaling, 20, 20);
+  ellipse(leftHandPos().x*kinectScaling, leftHandPos().y*kinectScaling, 20, 20);
   updateValues();
-  println(leftHand.x);
   if (beingDragged() ) {
-    println("dragged");
+
     for (Chain c : chains) {
       c.dragged=true;
     }
   }
   if (beingReleased()) {
-    println("released");
+
     for (Chain c : chains) {
       c.release();
     }
@@ -77,6 +80,12 @@ void draw() {
   for (Chain c : chains) {
     c.display();
   }
+
+  sendToWekinator();
+
+  //if (trailingJointPositions.size() > 0) {
+
+  //}
 }
 
 void updateValues() {
@@ -96,20 +105,8 @@ void updateValues() {
   }
 }
 
-PVector leftHandPos() {
-  if (trailingJointPositions.size()>0) {
 
-    leftHand = trailingJointPositions.get(4);
-   // leftHand.mult(kinectScaling);
-    leftHand.y = height/2 - leftHand.y;
-    //leftHand.x *= -1;
-    //leftHand.x +=width/2;
-    return leftHand;
-  } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
-  }
-}
+
 
 boolean beingDragged() {
   if (leftHand.x>width/2) {
