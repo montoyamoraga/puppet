@@ -33,8 +33,8 @@ String[] oscPos = {
 
 void setupOSC() {
 
-  //receive rawData from  kinect
-  //listen to incoming messages at port 1994
+  //receive
+  //start oscP5, listening for incoming messages at port 1994
   rawData = new OscP5(this, 1994);
 
   //start oscP5 for communicating with wekinator
