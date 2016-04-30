@@ -1,5 +1,9 @@
+//choreographic interventions
+//final project
+//by yuli cai, aaron montoya donald shorter 
+//april-may 2016
 
-
+//import libraries for strings drawing
 import toxi.physics2d.*;
 import toxi.physics2d.behaviors.*;
 import toxi.geom.*;
@@ -16,12 +20,17 @@ ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 //our chains number
 int chainNum = 10;
 
-//port for receving
-//1995 for smoothed data
-//1994 for raw data
+//receving port
+//1994 raw data
+//1995 smoot data
 int yuliIn = 1995;
+
+//boolean to check if there has
+//been an incoming OSC message
 boolean receivedOSC;
 
+//float arrays to store
+//all of the joints pvectors
 float[] xPos = new float[10];
 float[] yPos = new float[10];
 float[] zPos = new float[10];
@@ -49,7 +58,8 @@ void setup() {
     chains.add(new Chain(200, 20, 12, 0.2, initxPos, physicWorlds.get(i)));
   }
 
-  setupOSC();
+  setupOSCMax();
+  setupOSCWekinator();
 }
 
 void draw() {

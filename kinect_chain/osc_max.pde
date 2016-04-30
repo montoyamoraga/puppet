@@ -2,21 +2,21 @@
 import oscP5.*;
 import netP5.*;
 
-//declare objects for communication
-OscP5 rawData;
-OscP5 visualsWekinator;
+//declare object for communication with max
+OscP5 kinectData;
 
-void setupOSC() {
-  //start oscP5, listening for incoming messages at port 1994
-  rawData = new OscP5(this, 1994);
-  p5toWekinator= new NetAddress("127.0.0.1", 6448);
-  visualsWekinator = new OscP5(this, 12000);
+void setupOSCMax() {
+  //listen to incoming messages from max at port 1994 
+  kinectData = new OscP5(this, 1994);
 }
 
 void oscEvent(OscMessage theOscMessage) {
-
   receivedOSC = true;
+  receiveOSCMax(theOscMessage);
+  receiveOSCWekinator(theOscMessage);
+}
 
+void receiveOSCMax(OscMessage theOscMessage) {
   if (theOscMessage.checkAddrPattern("/head/x")) {
     xPos[0] = theOscMessage.get(0).floatValue();
   } else if (theOscMessage.checkAddrPattern("/head/y")) {
@@ -78,20 +78,5 @@ void oscEvent(OscMessage theOscMessage) {
   } else if (theOscMessage.checkAddrPattern("/thumb_right/z")) {
     zPos[9] = theOscMessage.get(0).floatValue();
   }
-
-
-  //wekinator handling
-  //else if (theOscMessage.checkAddrPattern("/wek/outputs")) {
-  //  if (theOscMessage.checkTypetag("f")) {
-  //    float wekinatorSpeedMode = theOscMessage.get(0).floatValue();
-  //    //println("received1");
-  //    println(wekinatorSpeedMode);
-  //  }
-  //}
-
-  /* print the address pattern and the typetag of the received OscMessage */
-  //println("### received an osc message.");
-  //print(" addrpattern: "+theOscMessage.addrPattern());
-  //println(" typetag: "+theOscMessage.typetag());
-  //println(theOscMessage.get(0));
+  
 }
