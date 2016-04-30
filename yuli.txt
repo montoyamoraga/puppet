@@ -1,0 +1,9 @@
+for retrieving:
+cd GitHub/choreographic_interventions/
+git pull
+
+for uploading
+git add -A
+git commit -m “yuli did this”
+git push
+
