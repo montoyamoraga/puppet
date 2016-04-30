@@ -19,6 +19,7 @@ ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 
 //our chains number
 int chainNum = 10;
+int gap = 0;
 
 //receving port
 //1994 raw data
@@ -38,9 +39,10 @@ float[] zPos = new float[10];
 
 
 void setup() {
-  size(400, 300);
+  //size(400, 300);
+  fullScreen();
   smooth();
-
+  gap = int(width / chainNum);
   // Initialize the physics world
   for (int i = 0; i<chainNum; i++) {
     physicWorlds.add(new VerletPhysics2D());
@@ -53,7 +55,7 @@ void setup() {
   // Initialize couple of chains
   //chain1 = new Chain(200, 20, 12, 0.2);
   for (int i = 0; i<chainNum; i++) {
-    float initxPos = i*50;
+    float initxPos = i*gap;
     //Chain(total length, numpoints, ellipse radius, strength, initial x, physics world)
     chains.add(new Chain(200, 20, 12, 0.2, initxPos, physicWorlds.get(i)));
   }
@@ -64,44 +66,27 @@ void setup() {
 
 void draw() {
   background(255);
+
   fill(255, 0, 0);
-  ellipse(leftThumb().x*kinectScaling, leftThumb().y*kinectScaling, 20, 20);
-  ellipse(leftTip().x*kinectScaling, leftTip().y*kinectScaling, 20, 20);
-  ellipse(leftHandPos().x*kinectScaling, leftHandPos().y*kinectScaling, 20, 20);
+  ellipse(lHandToWorld().x, lHandToWorld().y, 10, 10);
   updateValues();
-  if (beingDragged() ) {
-
-    for (Chain c : chains) {
-      c.dragged=true;
-    }
-  }
-  if (beingReleased()) {
-
-    for (Chain c : chains) {
-      c.release();
-    }
-  }
+  detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
   for (Chain c : chains) {
-    c.updateTail((int)leftHandPos().x, (int)leftHandPos().y);
+    c.updateTail((int)lHandToWorld().x, (int)lHandToWorld().y);
+    //c.updateTail(mouseX, mouseY);
   }
   for (Chain c : chains) {
     c.display();
   }
 
   sendToWekinator();
-
-  //if (trailingJointPositions.size() > 0) {
-
-  //}
 }
 
 void updateValues() {
-
   if (receivedOSC) {
-    println("data");
     //delete old values
     while (trailingJointPositions.size() > 0) {
       trailingJointPositions.remove(0);
@@ -116,34 +101,26 @@ void updateValues() {
 }
 
 
-
-
-boolean beingDragged() {
-  if (leftHand.x>width/2) {
-    return true;
-  } else {
-    return false;
+void detectMode() {
+  //categoryWekinator 1= release
+  //categoryWekinator 2 = hold, dragged
+  if (mode == 1) {
+    for (Chain c : chains) {
+      c.release();
+    }
+  } else if (mode == 2) {
+    for (Chain c : chains) {
+      c.dragged=true;
+    }
   }
 }
 
-boolean beingReleased() {
-  if (leftHand.x>width/2) {
-    return false;
-  } else {
-    return true;
+int mode = 0;
+void keyPressed() {
+  if (keyCode == UP) {
+    mode = 1;
   }
-}
-
-void mousePressed() {
-  // Check to see if we're grabbing the chain
-  for (Chain c : chains) {
-    c.dragged=true;
-  }
-}
-
-void mouseReleased() {
-  // Release the chain
-  for (Chain c : chains) {
-    c.release();
+  if (keyCode == DOWN) {
+    mode = 2;
   }
 }

@@ -6,6 +6,8 @@ NetAddress p5toWekinator;
 
 //declare strings for sending messages
 String oscWekinatorFlag = "/wek/inputs/";
+//out put from Wekinator
+float categoryWekinator;
 
 void setupOSCWekinator() {
   p5toWekinator= new NetAddress("127.0.0.1", 6448);
@@ -16,6 +18,7 @@ void setupOSCWekinator() {
 //function for sending data to wekinator
 void sendToWekinator() {
   OscMessage toWekinator = new OscMessage("/wek/inputs/");
+
   toWekinator.add(lDisHandTip());
   toWekinator.add(lDisHandThumb());
   toWekinator.add(lDisTipThumb());
@@ -27,8 +30,8 @@ void receiveOSCWekinator(OscMessage theOscMessage) {
 
   if (theOscMessage.checkAddrPattern("/wek/outputs")) {
     if (theOscMessage.checkTypetag("f")) {
-      float categoryWekinator = theOscMessage.get(0).floatValue();
-      println(categoryWekinator);
+      categoryWekinator = theOscMessage.get(0).floatValue();
+      //println(categoryWekinator);
     }
   }
 }

@@ -97,7 +97,7 @@ class Chain {
 
     // Draw a ball at the tail
     stroke(0);
-    fill(175);
+    fill(0);
     ellipse(tail.x, tail.y, radius*2, radius*2);
   }
 }
