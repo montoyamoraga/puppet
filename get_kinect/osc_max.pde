@@ -47,7 +47,25 @@ void setupOSC() {
   oscToYuli = new NetAddress(macbook_yuli, 1993);
 }
 
-void sendToMacbook(NetAddress netadress) {
+void sendToAaron() {
+  //for (int i = 0; i < trailingJointPositions.size(); i++) {
+  for (int i = 0; i < jointsNum; i++) {
+    for (int j = 0; j < 3; j++) {
+      String headers = oscJoints[i] + oscPos[j];
+      OscMessage sendingMessage = new OscMessage(headers);
+      if (j == 0) {
+        sendingMessage.add(trailingJointPositions.get(i).x);
+      } else if (j == 1) {
+        sendingMessage.add(trailingJointPositions.get(i).y);
+      } else if (j == 2) {
+        sendingMessage.add(trailingJointPositions.get(i).z);
+      }
+      oscP5.send(sendingMessage, oscToAaron);
+    }
+  }
+}
+
+void sendToYuli() {
   //for (int i = 0; i < trailingJointPositions.size(); i++) {
 
   String headers = "/headers";
@@ -65,5 +83,5 @@ void sendToMacbook(NetAddress netadress) {
     //}
   }
   println("sending message");
-  oscP5.send(sendingMessage, netadress);
+  oscP5.send(sendingMessage, oscToYuli);
 }

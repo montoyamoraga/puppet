@@ -3,8 +3,10 @@
 //by yuli cai, aaron montoya donald shorter 
 //april-may 2016
 
-String macbook_aaron = "172.17.46.51";
-String macbook_yuli = "172.17.72.33";
+
+
+String macbook_aaron = "172.16.220.163";
+String macbook_yuli = "172.16.254.215";
 
 //setup loop
 void setup() {
@@ -33,8 +35,8 @@ void draw() {
   if (trailingJointPositions.size() > 0) {
     //send the data to an external Max patch
     //on another computer
-    sendToMacbook(oscToAaron);
-    sendToMacbook(oscToYuli);
+    sendToAaron();
+    sendToYuli();
   }
   
 }

@@ -57,7 +57,7 @@ void getKinectData() {
   scale(kinectScaling, kinectScaling, 1);
   rotateX(PI);
   //flip the x positions, so we can perform in between the Kinect and the wall
-  rotateY(PI);
+ // rotateY(PI);
 
   skeletonArray = kinect.getSkeleton3d();
   if (skeletonArray.size() > 0) {
@@ -66,7 +66,7 @@ void getKinectData() {
       joints = skeleton.getJoints();   
 
       //keep only the current frame of joints in storage
-      while (trailingJointPositions.size()>(jointsNum+1)) {
+      while (trailingJointPositions.size()>0) {
         trailingJointPositions.remove(0);
       }
 

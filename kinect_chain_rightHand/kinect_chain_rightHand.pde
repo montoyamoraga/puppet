@@ -37,8 +37,8 @@ float[] yPos = new float[10];
 float[] zPos = new float[10];
 
 void setup() {
-  size(400, 300);
-  //fullScreen();
+  //size(400, 300);
+  fullScreen();
   smooth();
   gap = int(width / chainNum);
   // Initialize the physics world
