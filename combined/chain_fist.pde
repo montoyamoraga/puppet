@@ -13,6 +13,9 @@ ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 int chainNum = 20;
 int gap = 0;
 
+int speedCheckCounter = 0;
+
+
 void chainFistSetup() {
   gap = int(width / chainNum);
   // Initialize the physics world
@@ -47,21 +50,34 @@ void chainFist() {
   for (Chain c : chains) {
     c.display();
   }
-    pleftHand = toWorld(leftHand());
+  pleftHand = toWorld(leftHand());
 }
 
 void detectMode() {
-  //categoryWekinator 1= release
-  //categoryWekinator 2 = hold, dragged
-  if (mode == 1) {
-    for (Chain c : chains) {
-      c.release();
+  //categoryWekinator 2= release
+  //categoryWekinator 1 = hold, dragged
+  if (speedCheckCounter>10) {
+    if (categoryWekinator == 2.0) {
+      for (Chain c : chains) {
+        c.release();
+      }
     }
-  } else if (mode == 2) {
-    for (Chain c : chains) {
-      c.dragged=true;
+    if (categoryWekinator == 1.0) {
+      for (Chain c : chains) {
+        c.dragged=true;
+      }
     }
-  }
+    speedCheckCounter = 0;
+  }  
+  //if (mode == 1) {
+  //  for (Chain c : chains) {
+  //    c.release();
+  //  }
+  //} else if (mode == 2) {
+  //  for (Chain c : chains) {
+  //    c.dragged=true;
+  //  }
+  //}
 }
 
 int mode = 0;

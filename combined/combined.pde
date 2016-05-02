@@ -20,6 +20,8 @@ boolean receivedOSC;
 //switching from intro to the second scene
 int scene = 1;
 
+
+
 //float arrays to store
 //all of the joints pvectors
 float[] xPos = new float[10];
