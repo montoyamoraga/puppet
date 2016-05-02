@@ -3,6 +3,13 @@
 PVector leftHand = new PVector();
 PVector leftTip = new PVector();
 PVector leftThumb = new PVector();
+PVector rightHand = new PVector();
+PVector rightTip = new PVector();
+PVector rightThumb = new PVector();
+PVector head = new PVector();
+PVector spineBase = new PVector();
+PVector kneeLeft = new PVector();
+PVector kneeRight = new PVector();
 
 PVector leftHand() {
   if (trailingJointPositions.size()>0) {
@@ -36,6 +43,77 @@ PVector leftThumb() {
   }
 }
 
+PVector rightHand() {
+  if (trailingJointPositions.size()>0) {
+    leftHand = trailingJointPositions.get(5);
+    return leftHand;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+
+PVector rightTip() {
+  if (trailingJointPositions.size()>0) {
+    leftTip = trailingJointPositions.get(7);
+    return leftTip;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+
+PVector rightThumb() {
+  if (trailingJointPositions.size()>0) {
+    leftThumb = trailingJointPositions.get(9);
+    return leftThumb;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+PVector head() {
+  if (trailingJointPositions.size()>0) {
+    head = trailingJointPositions.get(0);
+    return head;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+PVector spineBase() {
+  if (trailingJointPositions.size()>0) {
+    spineBase = trailingJointPositions.get(1);
+    return spineBase;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+PVector kneeLeft() {
+  if (trailingJointPositions.size()>0) {
+    kneeLeft = trailingJointPositions.get(2);
+    return kneeLeft;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
+
+PVector kneeRight() {
+  if (trailingJointPositions.size()>0) {
+    kneeRight = trailingJointPositions.get(3);
+    return kneeRight;
+  } else {
+    PVector zero = new PVector(0, 0, 0);
+    return zero;
+  }
+}
 
 //differences, distances, also what we send to wekinator to analyse
 //___________________________________________________________________________
@@ -65,11 +143,10 @@ float lDisTipThumb() {
 
 //to the visual world cordinate 
 //___________________________________________________________________________
-PVector lHandToWorld = new PVector();
-PVector lHandToWorld() {
-  lHandToWorld =new PVector(leftHand().x*kinectScaling,leftHand().y*kinectScaling, leftHand().z*kinectScaling);
-  lHandToWorld.y = height/2- lHandToWorld.y;
-  //lHandToWorld.x *= -1;
-  lHandToWorld.x += width/2;
-  return lHandToWorld;
+//expecting an input of raw data from kinect, a PVector
+PVector toWorld(PVector input){
+ PVector output = new PVector(input.x* kinectScaling,input.y*kinectScaling,input.z*kinectScaling);
+ output.y = height-(height/2+output.y);
+ output.x +=width/2;
+ return output; 
 }

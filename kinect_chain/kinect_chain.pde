@@ -24,7 +24,7 @@ int gap = 0;
 //receving port
 //1994 raw data
 //1995 smoot data
-int yuliIn = 1995;
+int yuliIn = 1993;
 
 //boolean to check if there has
 //been an incoming OSC message
@@ -37,8 +37,8 @@ float[] yPos = new float[10];
 float[] zPos = new float[10];
 
 void setup() {
-  //size(400, 300);
-  fullScreen();
+  size(400, 300);
+  //fullScreen();
   smooth();
   gap = int(width / chainNum);
   // Initialize the physics world
@@ -64,17 +64,27 @@ void setup() {
 
 void draw() {
   background(255);
-
+  //println("width = " + width +",height= "+height);
+  println("x= " + toWorld(leftHand()).x + "y= " +  toWorld(leftHand()).y);
   fill(255, 0, 0);
-  ellipse(lHandToWorld().x, lHandToWorld().y, 10, 10);
+  ellipse(toWorld(leftThumb()).x, toWorld(leftThumb()).y, 5, 5);
+  ellipse(toWorld(leftHand()).x, toWorld(leftHand()).y, 5, 5);
+  ellipse(toWorld(leftTip()).x, toWorld(leftTip()).y, 5, 5);
+  //ellipse(toWorld(rightThumb()).x, toWorld(rightThumb()).y, 5, 5);
+  //ellipse(toWorld(rightHand()).x, toWorld(rightHand()).y, 5, 5);
+  //ellipse(toWorld(rightTip()).x, toWorld(rightTip()).y, 5, 5);
+ // ellipse(toWorld(kneeLeft()).x, toWorld(kneeLeft()).y, 5, 5);
+ // ellipse(toWorld(kneeRight()).x, toWorld(kneeRight()).y, 5, 5);
+  //ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
+  //ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
   updateValues();
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
   for (Chain c : chains) {
-    c.updateTail((int)lHandToWorld().x, (int)lHandToWorld().y);
-    //c.updateTail(mouseX, mouseY);
+    c.updateTail((int)toWorld(leftHand()).x, (int)toWorld(leftHand()).y);
+   // c.updateTail(mouseX, mouseY);
   }
   for (Chain c : chains) {
     c.display();

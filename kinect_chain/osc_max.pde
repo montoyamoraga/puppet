@@ -19,9 +19,11 @@ void oscEvent(OscMessage theOscMessage) {
 void receiveOSCMax(OscMessage theOscMessage) {
 
   if (theOscMessage.checkAddrPattern("/headers")) {
-    println("yay osc");
-    /* check if the typetag is the right one. */
 
+    /* check if the typetag is the right one. */
+    
+   // println(theOscMessage);
+    
     for (int i = 0; i < 10; i++) {
       xPos[i] = theOscMessage.get(i*3).floatValue();
       yPos[i] = theOscMessage.get(i*3+1).floatValue();
