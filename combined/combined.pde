@@ -27,7 +27,7 @@ float[] yPos = new float[10];
 float[] zPos = new float[10];
 
 void setup() {
-  size(400, 300,P3D);
+  size(400, 300, P3D);
   //fullScreen(P3D);
   smooth();
   spinningHurricaneSetup();
@@ -46,7 +46,7 @@ void draw() {
   } else if (scene == 2) {
     chainFist();
   }
-  
+
   fill(255, 0, 0);
   ellipse(toWorld(leftThumb()).x, toWorld(leftThumb()).y, 5, 5);
   ellipse(toWorld(leftHand()).x, toWorld(leftHand()).y, 5, 5);
@@ -58,8 +58,9 @@ void draw() {
   ellipse(toWorld(kneeRight()).x, toWorld(kneeRight()).y, 5, 5);
   ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
   ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
-
+if(leftHandSpeed.mag()>0){
   sendToWekinator();
+}
 }
 
 void updateValues() {

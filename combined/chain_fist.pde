@@ -34,6 +34,7 @@ void chainFistSetup() {
 }
 
 void chainFist() {
+  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHand);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
@@ -46,6 +47,7 @@ void chainFist() {
   for (Chain c : chains) {
     c.display();
   }
+    pleftHand = toWorld(leftHand());
 }
 
 void detectMode() {

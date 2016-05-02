@@ -18,10 +18,11 @@ void setupOSCWekinator() {
 //function for sending data to wekinator
 void sendToWekinator() {
   OscMessage toWekinator = new OscMessage("/wek/inputs/");
-
-  toWekinator.add(lDisHandTip());
-  toWekinator.add(lDisHandThumb());
-  toWekinator.add(lDisTipThumb());
+  
+  toWekinator.add(leftHandSpeed.mag());
+  //toWekinator.add(lDisHandTip());
+  //toWekinator.add(lDisHandThumb());
+  //toWekinator.add(lDisTipThumb());
   visualsPatchWekinator.send(toWekinator, p5toWekinator);
 }
 

@@ -8,4 +8,6 @@ int trailingJointIndex;
 ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
-float kinectScaling = 200.0;
+//float kinectScaling = 200.0;
+//scaling for full screen
+float kinectScaling = 500.0;

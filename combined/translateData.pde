@@ -115,6 +115,9 @@ PVector kneeRight() {
   }
 }
 
+
+
+
 //differences, distances, also what we send to wekinator to analyse
 //___________________________________________________________________________
 float lDisHandTip ;
@@ -144,9 +147,9 @@ float lDisTipThumb() {
 //to the visual world cordinate 
 //___________________________________________________________________________
 //expecting an input of raw data from kinect, a PVector
-PVector toWorld(PVector input){
- PVector output = new PVector(input.x* kinectScaling,input.y*kinectScaling,input.z*kinectScaling);
- output.y = height-(height/2+output.y);
- output.x +=width/2;
- return output; 
+PVector toWorld(PVector input) {
+  PVector output = new PVector(input.x* kinectScaling, input.y*kinectScaling, input.z*kinectScaling);
+  output.y = height-(height/2+output.y);
+  output.x +=width/2;
+  return output;
 }
