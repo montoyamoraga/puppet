@@ -82,5 +82,6 @@ void sendToYuli() {
     //oscP5.send(sendingMessage, oscToYuli);
     //}
   }
+  println("sending message");
   oscP5.send(sendingMessage, oscToYuli);
 }
