@@ -1,5 +1,4 @@
 class Particle {
-
   PVector loc;
   PVector vel;
   PVector acc;
