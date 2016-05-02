@@ -36,8 +36,6 @@ float[] xPos = new float[10];
 float[] yPos = new float[10];
 float[] zPos = new float[10];
 
-
-
 void setup() {
   //size(400, 300);
   fullScreen();

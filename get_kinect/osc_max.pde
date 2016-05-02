@@ -10,15 +10,15 @@ NetAddress oscToProcessing;
 
 //declare strings for sending messages
 String[] oscJoints = {
-  "/head",
-  "/spine_base",
+  "/head", 
+  "/spine_base", 
   "/knee_left", 
   "/knee_right", 
   "/hand_left", 
-  "/hand_right",
+  "/hand_right", 
   "/hand_tip_left", 
-  "/hand_tip_right",
-  "/thumb_left",
+  "/hand_tip_right", 
+  "/thumb_left", 
   "/thumb_right"
 };
 
@@ -44,7 +44,7 @@ void setupOSC() {
    */
   //send
   oscToAaron = new NetAddress(macbook_aaron, 1989);
-  oscToYuli = new NetAddress(macbook_yuli, 1998);
+  oscToYuli = new NetAddress(macbook_yuli, 1989);
 }
 
 void sendToAaron() {
@@ -67,18 +67,21 @@ void sendToAaron() {
 
 void sendToYuli() {
   //for (int i = 0; i < trailingJointPositions.size(); i++) {
+
+  String headers = "/headers";
+  OscMessage sendingMessage = new OscMessage(headers);
+
   for (int i = 0; i < jointsNum; i++) {
-    for (int j = 0; j < 3; j++) {
-      String headers = oscJoints[i] + oscPos[j];
-      OscMessage sendingMessage = new OscMessage(headers);
-      if (j == 0) {
-        sendingMessage.add(trailingJointPositions.get(i).x);
-      } else if (j == 1) {
-        sendingMessage.add(trailingJointPositions.get(i).y);
-      } else if (j == 2) {
-        sendingMessage.add(trailingJointPositions.get(i).z);
-      }
-      oscP5.send(sendingMessage, oscToYuli);
-    }
+    //for (int j = 0; j < 3; j++) {
+    //String headers = oscJoints[i] + oscPos[j];
+
+    sendingMessage.add(trailingJointPositions.get(i).x);
+    sendingMessage.add(trailingJointPositions.get(i).y);
+    sendingMessage.add(trailingJointPositions.get(i).z);
+
+    //oscP5.send(sendingMessage, oscToYuli);
+    //}
   }
+  println("sending message");
+  oscP5.send(sendingMessage, oscToYuli);
 }
