@@ -63,7 +63,12 @@ void getKinectData() {
   if (skeletonArray.size() > 0) {
     KSkeleton skeleton = (KSkeleton) skeletonArray.get(0);
     if (skeleton.isTracked()) {
-      joints = skeleton.getJoints();      
+      joints = skeleton.getJoints();   
+
+      //keep only the current frame of joints in storage
+      while (trailingJointPositions.size()>(jointsNum+1)) {
+        trailingJointPositions.remove(0);
+      }
 
       // Get the index number for the joint
       //each index represents one joint
@@ -73,11 +78,6 @@ void getKinectData() {
         KJoint trailingJoint = joints[trailingJointIndex];
         // Get the PVector containing the xyz position of the joint
         trailingJointPositions.add(trailingJoint.getPosition().copy());
-      }
-
-      //keep only the current frame of joints in storage
-      while (trailingJointPositions.size()>(jointsNum+1)) {
-        trailingJointPositions.remove(0);
       }
     }
   }
@@ -108,10 +108,12 @@ We take 10 joints from the kinect, which are as follows
     return KinectPV2.JointType_KneeLeft;
   } else if (index == 3) {
     return KinectPV2.JointType_KneeRight;
-  } else if (index == 4) {
-    return KinectPV2.JointType_HandLeft;
+  } else if (index == 4) {   
+    //return 7;
+    //return KinectPV2.JointType_HandLeft;
+    return KinectPV2.JointType_WristLeft;
   } else if (index == 5) {
-    return KinectPV2.JointType_HandRight;
+    return KinectPV2.JointType_WristRight;
   } else if (index == 6) {
     return KinectPV2.JointType_HandTipLeft;
   } else if (index == 7) {
@@ -121,6 +123,6 @@ We take 10 joints from the kinect, which are as follows
   } else if (index == 9) {
     return KinectPV2.JointType_ThumbRight;
   } else {
-    return 5;
+    return 1000;
   }
 }

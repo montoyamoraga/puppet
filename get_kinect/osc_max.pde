@@ -43,8 +43,8 @@ void setupOSC() {
    * send messages back to this sketch.
    */
   //send
-  oscToAaron = new NetAddress(macbook_aaron, 1989);
-  oscToYuli = new NetAddress(macbook_yuli, 1989);
+  oscToAaron = new NetAddress(macbook_aaron, 1993);
+  oscToYuli = new NetAddress(macbook_yuli, 1993);
 }
 
 void sendToAaron() {

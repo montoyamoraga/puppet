@@ -8,8 +8,8 @@
 
 
 
-String macbook_aaron = "172.16.223.211";
-String macbook_yuli = "172.16.255.221";
+String macbook_aaron = "172.16.220.163";
+String macbook_yuli = "172.16.254.215";
 
 //setup loop
 void setup() {
