@@ -51,6 +51,7 @@ void chainFist() {
     c.display();
   }
   pleftHand = toWorld(leftHand());
+  speedCheckCounter++;
 }
 
 void detectMode() {
