@@ -4,8 +4,8 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 2,
-			"revision" : 2,
-			"architecture" : "x64",
+			"revision" : 1,
+			"architecture" : "x86",
 			"modernui" : 1
 		}
 ,
@@ -109,7 +109,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
 					"patching_rect" : [ 415.0, 494.0, 45.0, 22.0 ],
-					"presentation_rect" : [ 417.0, 496.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "cycle~"
 				}
@@ -137,7 +136,6 @@
 					"outlettype" : [ "signal", "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 415.0, 594.0, 22.0, 47.0 ],
-					"presentation_rect" : [ 389.5, 464.0, 0.0, 0.0 ],
 					"style" : ""
 				}
 
