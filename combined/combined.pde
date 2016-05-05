@@ -29,8 +29,8 @@ float[] yPos = new float[10];
 float[] zPos = new float[10];
 
 void setup() {
-  size(400, 300, P3D);
-  //fullScreen(P3D);
+  //size(400, 300, P3D);
+  fullScreen(P3D);
   smooth();
   spinningHurricaneSetup();
   chainFistSetup();

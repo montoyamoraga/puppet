@@ -59,6 +59,7 @@ void spinningHurricane() {
     }
 
     if (!posMiddle()) {
+      
       force.mult(0);
     }
     p.applyForce(force);
@@ -68,9 +69,8 @@ void spinningHurricane() {
   pleftHand = toWorld(leftHand());
 }
 
-
 boolean posMiddle() {
-  if (leftHand.x<=middleThreshold) {
+  if (toWorld(leftHand()).x<=middleThreshold) {
     posMiddle = true;
   } else {
     posMiddle = false;

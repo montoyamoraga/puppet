@@ -7,7 +7,7 @@
 String macbook_aaron = "172.17.47.97";
 
 //port for receiving
-int yuliIn = 1994;
+int yuliIn = 1993;
 
 boolean receivedOSC;
 
