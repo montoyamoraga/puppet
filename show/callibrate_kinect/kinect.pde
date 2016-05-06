@@ -1,16 +1,14 @@
-/*
-We track these 10 joints from kinect
- 0: Head;
- 1: SpineBase;
- 2: KneeLeft;
- 3: KneeRight;
- 4: WristLeft;
- 5: WristRight;
- 6: HandTipLeft
- 7: HandTipRight
- 8: ThumbLeft
- 9: ThumbRight
- */
+//10 joints being tracked on kinect
+//0: Head;
+//1: SpineBase;
+//2: KneeLeft;
+//3: KneeRight;
+//4: WristLeft;
+//5: WristRight;
+//6: HandTipLeft
+//7: HandTipRight
+//8: ThumbLeft
+//9: ThumbRight
 
 //import libraries for kinect2
 import KinectPV2.KJoint;
@@ -76,7 +74,6 @@ void getKinectData() {
       while (trailingJointPositions.size()>0) {
         trailingJointPositions.remove(0);
       }
-
       // Get the index number for the joint
       //each index represents one joint
       for (int i = 0; i<jointsNum; i++) {
