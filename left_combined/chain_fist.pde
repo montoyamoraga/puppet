@@ -56,7 +56,7 @@ void chainFist() {
     c.radius = map(c.radius, frontHand, backHand, 30, 1);
   }
   for (Chain c : chains) {
-    println("RADIUS= " +c.radius);
+    //println("RADIUS= " +c.radius);
     c.display();
   }
   prightHand = toWorld(leftHand());

@@ -16,6 +16,15 @@ void defaultValues() {
 
 }
 
+void printCalibX() {
+  
+  for (int i = 0; i < xCalib.length; i++) {
+    println(xCalib[i]);
+  }
+  
+  
+}
+
 /*
 void calibration() {
   middleThreshold = toWorld(data1);

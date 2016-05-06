@@ -26,15 +26,21 @@ float[] xPos = new float[10];
 float[] yPos = new float[10];
 float[] zPos = new float[10];
 
+//float arrays to store
+//the calibration data
+float[] xCalib = new float[5];
+float[] yCalib = new float[5];
+float[] zCalib = new float[5];
+
 //full screen width is 1440
 void setup() {
   //size(1280, 800, P3D);
-    size(600, 400, P3D);
+  size(600, 400, P3D);
   //fullScreen(P3D);
-  
+
   defaultValues();
-  
-  
+
+
   smooth();
   spinningHurricaneSetup();
   chainFistSetup();
@@ -47,6 +53,12 @@ void draw() {
 
 
   updateValues();
+  
+  if (isCalibrating) {
+    printCalibX();
+  }
+  
+  
   if (scene == 1) {
     spinningHurricane();
   } else if (scene == 2) {
@@ -54,18 +66,18 @@ void draw() {
   }
   /*
   //drawing all the joints
-  fill(255, 0, 0);
-  ellipse(toWorld(leftThumb()).x, toWorld(leftThumb()).y, 5, 5);
-  ellipse(toWorld(leftHand()).x, toWorld(leftHand()).y, 5, 5);
-  ellipse(toWorld(leftTip()).x, toWorld(leftTip()).y, 5, 5);
-  ellipse(toWorld(rightThumb()).x, toWorld(rightThumb()).y, 5, 5);
-  ellipse(toWorld(rightHand()).x, toWorld(rightHand()).y, 5, 5);
-  ellipse(toWorld(rightTip()).x, toWorld(rightTip()).y, 5, 5);
-  ellipse(toWorld(kneeLeft()).x, toWorld(kneeLeft()).y, 5, 5);
-  ellipse(toWorld(kneeRight()).x, toWorld(kneeRight()).y, 5, 5);
-  ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
-  ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
-  */
+   fill(255, 0, 0);
+   ellipse(toWorld(leftThumb()).x, toWorld(leftThumb()).y, 5, 5);
+   ellipse(toWorld(leftHand()).x, toWorld(leftHand()).y, 5, 5);
+   ellipse(toWorld(leftTip()).x, toWorld(leftTip()).y, 5, 5);
+   ellipse(toWorld(rightThumb()).x, toWorld(rightThumb()).y, 5, 5);
+   ellipse(toWorld(rightHand()).x, toWorld(rightHand()).y, 5, 5);
+   ellipse(toWorld(rightTip()).x, toWorld(rightTip()).y, 5, 5);
+   ellipse(toWorld(kneeLeft()).x, toWorld(kneeLeft()).y, 5, 5);
+   ellipse(toWorld(kneeRight()).x, toWorld(kneeRight()).y, 5, 5);
+   ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
+   ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
+   */
   if (leftHandSpeed.mag()>0) {
     sendToWekinator();
   }
