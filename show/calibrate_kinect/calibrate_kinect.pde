@@ -44,6 +44,9 @@ void setup() {
   //setup OSC communication
   setupOSC();
 
+  //setup calibration
+  setupCalibration();
+
   //green background
   background(0, 0, 0);
 
@@ -64,8 +67,8 @@ void draw() {
 
   if (isCalibrating) {
     //get data from Kinect
-    getKinectData();
-   calibrationRoutine();
+    //getKinectData();
+    calibrationRoutine();
   }
 
   //check if there is data

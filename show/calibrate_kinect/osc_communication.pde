@@ -69,3 +69,17 @@ void sendRawData(NetAddress computer) {
   //through the set port
    handlerOSC.send(rawData, computer);
 }
+
+void sendCalibrationData(NetAddress computer) {
+  String header = "/calibrationData";
+  
+  OscMessage calibrationData = new OscMessage(header);
+  
+  for (int i = 0; i < 5; i++) {
+  }
+  
+  //send the calibrationdata to the desired computer
+  //through the set port
+  handlerOSC.send(calibrationData, computer);
+ 
+}
