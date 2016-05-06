@@ -39,13 +39,12 @@ void draw() {
   if (scene == 2) {
     pulling();
   }
-
 }
 
 
 void following() {
   background(0);
-
+  println("counter= " +isCenterCounter);
   // spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 20);
   lights();
   sphereDetail(8);  
@@ -80,14 +79,14 @@ void following() {
     //  force.mult(-1);
     //}
 
-    if (mouseMiddle()) {    
+    if (!mouseMiddle()) {    
       force.mult(0);
     }
     p.applyForce(force);
     p.run();
   }
 
-  if (mouseMiddle()&&isCenterCounter>0) {
+  if (!mouseMiddle()&&isCenterCounter>0) {
     timer++;
     println("timer= " + timer);
     if (timer>150) {
@@ -117,11 +116,12 @@ void pulling() {
 
 boolean mouseMiddle() {
   //in the kinect mode, it should be 3D, including z parameters to claim the center area
-  if (mouseX<= width/2) {
+  if (mouseX>= width/2) {
     mouseMiddle = true;
+    isCenterCounter++;
   } else {
     mouseMiddle = false;
-    isCenterCounter++;
+    //isCenterCounter++;
   }
   return mouseMiddle;
 }

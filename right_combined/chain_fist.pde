@@ -19,6 +19,7 @@ int speedCheckCounter = 0;
 float frontHand =350.0;
 float backHand  = 600.0;
 
+PVector prightHand = new PVector(0, 0, 0);
 
 void chainFistSetup() {
   gap = int(width / chainNum);
@@ -40,16 +41,16 @@ void chainFistSetup() {
 }
 
 void chainFist() {
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHand);
+  leftHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
-  println("chainZ = " + toWorld(leftHand()).z);
+  println("chainZ = " + toWorld(rightHand()).z);
   for (Chain c : chains) {
-    c.updateTail((int)toWorld(leftHand()).x, (int)toWorld(leftHand()).y);
-    c.radius = toWorld(leftHand()).z;
+    c.updateTail((int)toWorld(rightHand()).x, (int)toWorld(rightHand()).y);
+    c.radius = toWorld(rightHand()).z;
     //c.radius = c.radius/4;
     c.radius = map(c.radius, frontHand, backHand, 30, 1);
   }
@@ -57,7 +58,7 @@ void chainFist() {
     println("RADIUS= " +c.radius);
     c.display();
   }
-  pleftHand = toWorld(leftHand());
+  prightHand = toWorld(rightHand());
   speedCheckCounter++;
 }
 

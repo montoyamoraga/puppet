@@ -25,6 +25,8 @@ int isCenterCounter = 0;
 int timer = 0;
 int timer2 = 0;
 
+//variable specially for right side screen
+boolean coverMode = true;
 
 void spinningHurricaneSetup() {
 
@@ -56,7 +58,7 @@ void spinningHurricane() {
   if (xDir>0.0) {
     particles.add(new Particle(random(1, 4), new PVector(random(width), random(height), random(100))));
     for (Particle p : particles) {
-      p.applyForce(leftHandSpeed.mult(-1));
+      p.applyForce(leftHandSpeed);
       p.update();
     }
   }
@@ -80,7 +82,7 @@ void spinningHurricane() {
   }
 
   if (!posMiddle()&&isCenterCounter>0) {
-
+    coverMode = false;
     timer++;
     println("timer= " +timer);
     if (timer>150) {
@@ -100,6 +102,9 @@ void spinningHurricane() {
   }
   s.display();
   pleftHand = toWorld(leftHand());
+    if (coverMode) {
+    background(0);
+  }
 }
 
 //using spine instead of hand pos
