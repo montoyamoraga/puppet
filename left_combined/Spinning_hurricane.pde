@@ -80,7 +80,6 @@ void spinningHurricane() {
   }
 
   if (!posMiddle()&&isCenterCounter>0) {
-
     timer++;
     println("timer= " +timer);
     if (timer>150) {
@@ -98,6 +97,7 @@ void spinningHurricane() {
       }
     }
   }
+  
   s.display();
   pleftHand = toWorld(leftHand());
 }

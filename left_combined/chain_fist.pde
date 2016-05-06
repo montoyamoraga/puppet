@@ -19,6 +19,8 @@ int speedCheckCounter = 0;
 float frontHand =350.0;
 float backHand  = 600.0;
 
+PVector prightHand = new PVector(0, 0, 0);
+int scissorCounting = 0;
 
 void chainFistSetup() {
   gap = int(width / chainNum);
@@ -57,11 +59,18 @@ void chainFist() {
     println("RADIUS= " +c.radius);
     c.display();
   }
-  pleftHand = toWorld(leftHand());
+  prightHand = toWorld(leftHand());
   speedCheckCounter++;
 }
 
 void detectMode() {
+  println("scissorCounting = "+scissorCounting);
+  if (skeletonsTracked>1) {
+    scissorCounting++;
+  }
+  if (scissorCounting>500) {
+    categoryWekinator =2;
+  }
   //categoryWekinator 2= release
   //categoryWekinator 1 = hold, dragged
   if (speedCheckCounter>10) {
@@ -77,6 +86,7 @@ void detectMode() {
     }
     speedCheckCounter = 0;
   }  
+
   //if (mode == 1) {
   //  for (Chain c : chains) {
   //    c.release();
