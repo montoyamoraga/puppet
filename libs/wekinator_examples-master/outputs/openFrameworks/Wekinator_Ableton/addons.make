@@ -1,3 +1,0 @@
-ofxAbletonLive
-ofxControl
-ofxOsc
