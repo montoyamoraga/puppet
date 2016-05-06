@@ -39,7 +39,7 @@ void setup() {
   ips[2] = ipAaronAudio;
 
   //function for kinect setup
-  //setupKinect();
+  setupKinect();
 
   //setup OSC communication
   setupOSC();
