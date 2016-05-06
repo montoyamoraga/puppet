@@ -4,7 +4,7 @@
 //april-may 2016
 
 //define the ip addresses of other computers used
-String ipYuliVisualsLeft = "172.16.254.215";
+String ipYuliVisualsLeft = "172.16.253.83";
 String ipAaronVisualsRight = "172.16.220.163";
 String ipAaronAudio = "172.16.219.239";
 
