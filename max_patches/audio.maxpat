@@ -38,6 +38,32 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 374.0, 592.0, 33.0, 22.0 ],
+					"style" : "",
+					"text" : "stop"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 376.0, 514.0, 60.0, 22.0 ],
+					"style" : "",
+					"text" : "loadbang"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"format" : 6,
 					"id" : "obj-140",
 					"maxclass" : "flonum",
@@ -233,7 +259,6 @@
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 588.0, 512.0, 50.0, 22.0 ],
-					"presentation_rect" : [ 588.0, 510.0, 0.0, 0.0 ],
 					"style" : ""
 				}
 
@@ -246,7 +271,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
 					"patching_rect" : [ 579.0, 470.0, 42.0, 22.0 ],
-					"presentation_rect" : [ 579.0, 468.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "* 128."
 				}
@@ -1844,6 +1868,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-23", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2249,6 +2282,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-38", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-77", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -2447,26 +2489,26 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-88" : [ "number[10]", "number[10]", 0 ],
 			"obj-90" : [ "number[11]", "number[11]", 0 ],
 			"obj-20" : [ "gain~[2]", "gain~[2]", 0 ],
+			"obj-103" : [ "number[16]", "number[7]", 0 ],
+			"obj-104" : [ "number[17]", "number[6]", 0 ],
+			"obj-23" : [ "gain~[3]", "gain~[3]", 0 ],
+			"obj-105" : [ "number[18]", "number[5]", 0 ],
 			"obj-97" : [ "number[12]", "number[11]", 0 ],
-			"obj-98" : [ "number[13]", "number[10]", 0 ],
+			"obj-88" : [ "number[10]", "number[10]", 0 ],
 			"obj-80" : [ "number[9]", "number[9]", 0 ],
+			"obj-79" : [ "number[8]", "number[8]", 0 ],
+			"obj-48" : [ "slider", "slider", 0 ],
+			"obj-108" : [ "slider[1]", "slider", 0 ],
+			"obj-14" : [ "gain~", "gain~", 0 ],
+			"obj-75" : [ "number[7]", "number[7]", 0 ],
+			"obj-73" : [ "number[6]", "number[6]", 0 ],
+			"obj-98" : [ "number[13]", "number[10]", 0 ],
 			"obj-99" : [ "number[14]", "number[9]", 0 ],
 			"obj-100" : [ "number[15]", "number[8]", 0 ],
 			"obj-71" : [ "number[5]", "number[5]", 0 ],
-			"obj-14" : [ "gain~", "gain~", 0 ],
-			"obj-108" : [ "slider[1]", "slider", 0 ],
-			"obj-103" : [ "number[16]", "number[7]", 0 ],
-			"obj-73" : [ "number[6]", "number[6]", 0 ],
-			"obj-104" : [ "number[17]", "number[6]", 0 ],
-			"obj-105" : [ "number[18]", "number[5]", 0 ],
-			"obj-17" : [ "gain~[1]", "gain~[1]", 0 ],
-			"obj-23" : [ "gain~[3]", "gain~[3]", 0 ],
-			"obj-48" : [ "slider", "slider", 0 ],
-			"obj-75" : [ "number[7]", "number[7]", 0 ],
-			"obj-79" : [ "number[8]", "number[8]", 0 ]
+			"obj-17" : [ "gain~[1]", "gain~[1]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
