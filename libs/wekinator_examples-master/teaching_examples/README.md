@@ -1,1 +1,0 @@
-Examples useful in teaching
