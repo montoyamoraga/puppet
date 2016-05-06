@@ -39,12 +39,7 @@ void draw() {
   if (scene == 2) {
     pulling();
   }
-  //switch (scene) {
-  //case 1:
-  // following();
-  //case 2:
-  // pulling();
-  //}
+
 }
 
 
@@ -94,6 +89,7 @@ void following() {
 
   if (mouseMiddle()&&isCenterCounter>0) {
     timer++;
+    println("timer= " + timer);
     if (timer>150) {
       timer2++;
       //dim it to white    

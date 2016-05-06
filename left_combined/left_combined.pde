@@ -28,9 +28,10 @@ float[] xPos = new float[10];
 float[] yPos = new float[10];
 float[] zPos = new float[10];
 
+//full screen width is 1440
 void setup() {
   //size(1280, 800, P3D);
-   fullScreen(P3D);
+   //fullScreen(P3D);
   smooth();
   spinningHurricaneSetup();
   chainFistSetup();
@@ -39,7 +40,7 @@ void setup() {
 }
 
 void draw() {
-  println("y= " + toWorld(leftHand()).x);
+  //println("width = " + width +"; x= " + toWorld(leftHand()).x);
 
 
   updateValues();

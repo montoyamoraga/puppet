@@ -10,7 +10,7 @@ PVector pleftHand = new PVector(0, 0, 0);
 int lowSpeedCount = 0;
 float speedThreshold = 40;
 boolean posMiddle = false;
-int middleThreshold = width/2;
+int middleThreshold = 0;
 
 int isCenterCounter = 0;
 int timer = 0;
