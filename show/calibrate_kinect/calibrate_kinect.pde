@@ -71,7 +71,7 @@ void draw() {
     calibrationRoutine();
 
     if (calibrationReady) {
-      sendCalibrationtoComputers();
+      sendCalibrationToComputers();
       calibrationReady = false;
     }
   }

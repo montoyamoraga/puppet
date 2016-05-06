@@ -1,6 +1,7 @@
 int numberCalibration;
 float[] calibrationValues = new float[7];
 boolean continueCalibration;
+boolean calibrationReady;
 
 void setupCalibration() {
   numberCalibration = 0;
@@ -22,6 +23,7 @@ void calibrationRoutine() {
     println("thanks donald!");
     isCalibrating = false;
     numberCalibration = 0;
+    calibrationReady = true;
   }
 }
 
@@ -31,8 +33,4 @@ void keyPressed() {
     numberCalibration = numberCalibration + 1;
     calibrationJointPositions.add(joints[KinectPV2.JointType_WristLeft].getPosition().copy());
   }
-}
-
-void fillCalibration() {
-  calibrationJointPositions.add(getPosition().copy());
 }
