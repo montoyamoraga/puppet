@@ -31,3 +31,9 @@ void keyPressed() {
     numberCalibration = numberCalibration + 1;
   }
 }
+
+void fillCalibration() {
+  
+  trailingJointPositions.add(trailingJoint.getPosition().copy());
+  KinectPV2.JointType_WristLeft;
+}

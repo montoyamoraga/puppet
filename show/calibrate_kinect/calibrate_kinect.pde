@@ -69,6 +69,11 @@ void draw() {
     //get data from Kinect
     //getKinectData();
     calibrationRoutine();
+
+    if (calibrationReady) {
+      sendCalibrationtoComputers();
+      calibrationReady = false;
+    }
   }
 
   //check if there is data
@@ -86,6 +91,16 @@ void sendRawToComputers() {
     //send the data to the other computers
     for (int i = 0; i < ips.length; i++) {
       sendRawData(addresses[i]);
+    }
+  }
+}
+
+void sendCalibrationToComputers() {
+  //check if there is data
+  if (trailingJointPositions.size() > 0) {
+    //send the data to the other computers
+    for (int i = 0; i < ips.length; i++) {
+      sendCalibrationData(addresses[i]);
     }
   }
 }
