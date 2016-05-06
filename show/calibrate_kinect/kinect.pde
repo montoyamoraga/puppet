@@ -30,7 +30,7 @@ ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
 //declare array for storing the calibration data
-ArrayList<PVector> calibrationData = new ArrayList<PVector>();
+ArrayList<PVector> calibrationJointPositions = new ArrayList<PVector>();
 
 //number of joints tracked by kinect
 int jointsNum = 10;

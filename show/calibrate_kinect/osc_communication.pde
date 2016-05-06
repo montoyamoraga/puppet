@@ -46,9 +46,9 @@ void setupOSC() {
   handlerOSC = new OscP5(this, receivingPort);
 
   //define net addresses for other computers
-  
+
   for (int i = 0; i < addresses.length; i++) {
-    addresses[i] = new NetAddress(ips[i],sendingPort);
+    addresses[i] = new NetAddress(ips[i], sendingPort);
   }
 }
 
@@ -67,19 +67,21 @@ void sendRawData(NetAddress computer) {
   }
   //send the raw data to the desired computer
   //through the set port
-   handlerOSC.send(rawData, computer);
+  handlerOSC.send(rawData, computer);
 }
 
 void sendCalibrationData(NetAddress computer) {
   String header = "/calibrationData";
-  
+
   OscMessage calibrationData = new OscMessage(header);
-  
+
   for (int i = 0; i < 5; i++) {
+    calibrationData.add(calibrationJointPositions.get(i).x);
+    calibrationData.add(calibrationJointPositions.get(i).y);
+    calibrationData.add(calibrationJointPositions.get(i).z);
   }
-  
+
   //send the calibrationdata to the desired computer
   //through the set port
   handlerOSC.send(calibrationData, computer);
- 
 }

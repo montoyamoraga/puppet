@@ -29,11 +29,10 @@ void keyPressed() {
   if (isCalibrating && keyCode == 32) {
     continueCalibration = true;
     numberCalibration = numberCalibration + 1;
+    calibrationJointPositions.add(joints[KinectPV2.JointType_WristLeft].getPosition().copy());
   }
 }
 
 void fillCalibration() {
-  
-  trailingJointPositions.add(trailingJoint.getPosition().copy());
-  KinectPV2.JointType_WristLeft;
+  calibrationJointPositions.add(getPosition().copy());
 }
