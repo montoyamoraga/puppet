@@ -36,8 +36,8 @@ void draw() {
   if (scene == 1) {
     following();
   }
-  if(scene == 2){
-       pulling();
+  if (scene == 2) {
+    pulling();
   }
   //switch (scene) {
   //case 1:
@@ -93,7 +93,6 @@ void following() {
   }
 
   if (mouseMiddle()&&isCenterCounter>0) {
-
     timer++;
     if (timer>150) {
       timer2++;
