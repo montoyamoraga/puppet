@@ -4,9 +4,9 @@ import netP5.*;
 
 //declare objects for communication
 OscP5 handlerOSC;
-NetAddress toYuliVisualsLeft;
-NetAddress toAaronVisualsRight;
-NetAddress toAaronAudio;
+
+//declare array to contain the ip addresses
+NetAddress[] addresses = new NetAddress[3];
 
 //declare sending and receiving port numbers
 int sendingPort;
@@ -45,12 +45,11 @@ void setupOSC() {
   //listening for incoming messages at port 5555
   handlerOSC = new OscP5(this, receivingPort);
 
-
-
   //define net addresses for other computers
-  toYuliVisualsLeft = new NetAddress(ipYuliVisualsLeft, sendingPort);
-  toAaronVisualsRight = new NetAddress(ipAaronVisualsRight, sendingPort);
-  toAaronAudio = new NetAddress(ipAaronAudio, sendingPort);
+  
+  for (int i = 0; i < addresses.length; i++) {
+    addresses[i] = new NetAddress(ips[i],sendingPort);
+  }
 }
 
 //function for sendin the rawData from the computer 

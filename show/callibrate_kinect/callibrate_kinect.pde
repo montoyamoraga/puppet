@@ -16,7 +16,7 @@ void setup() {
   size(300, 300, P3D);
 
   //function for kinect setup
-  setupKinect();
+  //setupKinect();
 
   //setup OSC communication
   setupOSC();
@@ -29,7 +29,7 @@ void setup() {
 void draw() {
 
   //get data from Kinect
-  getKinectData();
+ //getKinectData();
 
   //check if there is data
   if (trailingJointPositions.size() > 0) {
