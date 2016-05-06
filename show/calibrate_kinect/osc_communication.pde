@@ -65,6 +65,8 @@ void sendRawData(NetAddress computer) {
     rawData.add(trailingJointPositions.get(i).y);
     rawData.add(trailingJointPositions.get(i).z);
   }
+  //append the number of skeletons tracked
+  rawData.add(skeletonsTracked);
   //send the raw data to the desired computer
   //through the set port
   handlerOSC.send(rawData, computer);

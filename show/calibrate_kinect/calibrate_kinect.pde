@@ -18,6 +18,7 @@ String ipAaronAudio = "172.16.219.239";
 boolean isCalibrating;
 boolean isRunning;
 
+//colos for interface
 color colorCalibrate = color(192, 192, 192);
 color colorRun = color(0, 0, 0);
 color colorText = color(255, 255, 255);
