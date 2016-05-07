@@ -26,6 +26,9 @@ int trailingJointIndex;
 //declare array for storing the skeletons
 ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 
+//number of skeletons being tracked
+int skeletonsTracked;
+
 //declare array for storing the joint positions
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 
@@ -63,7 +66,9 @@ void getKinectData() {
   
   //if there are skeletons tracked
   
-  if (skeletonArray.size() > 0) {
+  skeletonsTracked = skeletonArray.size();
+  
+  if (skeletonsTracked > 0) {
     KSkeleton skeleton = (KSkeleton) skeletonArray.get(0);
     if (skeleton.isTracked()) {
       

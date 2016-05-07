@@ -10,8 +10,8 @@ int computers = 3;
 String[] ips = new String[3];
 
 //declare and define the ip addresses used
-String ipYuliVisualsLeft = "172.16.253.83";
-String ipAaronVisualsRight = "172.16.220.163";
+String ipYuliVisualsLeft = "192.168.1.50";
+String ipAaronVisualsRight = "192.168.1.31";
 String ipAaronAudio = "172.16.219.239";
 
 //setup loop
