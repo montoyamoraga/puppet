@@ -29,7 +29,7 @@ float[] zPos = new float[10];
 //full screen width is 1440
 void setup() {
   //size(1280, 800, P3D);
-  ///size(600, 400, P3D);
+ // size(600, 400, P3D);
   fullScreen(P3D);
 
   defaultValues();
@@ -46,14 +46,16 @@ void draw() {
 
 
   updateValues();
+  
+
   if (scene == 1) {
-    spinningHurricane();
+   spinningHurricane();
   } else if (scene == 2) {
-    chainFist();
+   chainFist();
   }
   /*
   //drawing all the joints
-   fill(255, 0, 0);
+   fill(255, 0, 0);s
    ellipse(toWorld(leftThumb()).x, toWorld(leftThumb()).y, 5, 5);
    ellipse(toWorld(leftHand()).x, toWorld(leftHand()).y, 5, 5);
    ellipse(toWorld(leftTip()).x, toWorld(leftTip()).y, 5, 5);
@@ -65,7 +67,7 @@ void draw() {
    ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
    ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
    */
-  if (leftHandSpeed.mag()>0) {
+  if (rightHandSpeed.mag()>0) {
     sendToWekinator();
   }
 }

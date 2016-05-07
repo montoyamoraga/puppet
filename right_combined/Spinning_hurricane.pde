@@ -4,8 +4,8 @@ int initParticleNum = 10;
 ArrayList<Particle> particles = new ArrayList<Particle>();
 Sun s;
 
-PVector leftHandSpeed = new PVector();
-PVector pleftHand = new PVector(0, 0, 0);
+PVector rightHandSpeed = new PVector();
+//PVector prightHand = new PVector(0, 0, 0);
 
 int lowSpeedCount = 0;
 
@@ -43,28 +43,25 @@ void spinningHurricane() {
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
   sphereDetail(8); 
-  float xDir = toWorld(leftHand()).x - pleftHand.x;
+  float xDir = toWorld(rightHand()).x - prightHand.x;
   println("xDir= " + xDir);
 
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHand);
+  rightHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
   if (particles.size()>3000) {
     particles.remove(0);
   }
 
-  //  if (lowSpeedCount>300 && particles.size()>10) {
-  //    particles.remove(0);
-  //  }
 
   if (xDir>0.0) {
     particles.add(new Particle(random(1, 4), new PVector(random(width), random(height), random(100))));
     for (Particle p : particles) {
-      p.applyForce(leftHandSpeed);
+      p.applyForce(rightHandSpeed);
       p.update();
     }
   }
 
-  s.location = new PVector(introPos(toWorld(leftHand())).x, introPos(toWorld(leftHand())).y);
-  println("x!!!!!= "+introPos(toWorld(leftHand())).x);
+  s.location = new PVector(introPos(toWorld(rightHand())).x, introPos(toWorld(rightHand())).y);
+  println("x!!!!!= "+introPos(toWorld(rightHand())).x);
 
   for (Particle p : particles) {
     PVector force = s.getAttractForce(p);
@@ -77,7 +74,7 @@ void spinningHurricane() {
   }
 
   if (!posMiddle()&&isCenterCounter>0) {
-    coverMode = false;
+    //coverMode = false;
     timer++;
     println("timer= " +timer);
     if (timer>150) {
@@ -96,8 +93,8 @@ void spinningHurricane() {
     }
   }
   s.display();
-  pleftHand = toWorld(leftHand());
-    if (coverMode) {
+  prightHand = toWorld(rightHand());
+  if (coverMode) {
     background(0);
   }
 }
@@ -120,6 +117,7 @@ boolean posMiddle() {
     && toWorld(leftHand()).x>=(middleThreshold-zoneWidth)
     &&toWorld(leftHand()).z>=depthThreshold) {
     posMiddle = true;
+    coverMode = false;
     isCenterCounter++;
     println("zoned!!!!");
   } else {

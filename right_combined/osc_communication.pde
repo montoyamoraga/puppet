@@ -21,14 +21,15 @@ void receiveOSCMax(OscMessage theOscMessage) {
   if (theOscMessage.checkAddrPattern("/rawData")) {
 
     /* check if the typetag is the right one. */
-    
-   // println(theOscMessage);
-    
+
+    // println(theOscMessage);
+
     for (int i = 0; i < 10; i++) {
       xPos[i] = theOscMessage.get(i*3).floatValue();
       yPos[i] = theOscMessage.get(i*3+1).floatValue();
       zPos[i] = theOscMessage.get(i*3+2).floatValue();
     }
-       skeletonsTracked = theOscMessage.get(30).intValue();
+    skeletonsTracked = theOscMessage.get(30).intValue();
+    println("skeletonsTracked!= " + skeletonsTracked);
   }
 }

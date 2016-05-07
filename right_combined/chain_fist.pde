@@ -41,7 +41,7 @@ void chainFistSetup() {
 }
 
 void chainFist() {
-  leftHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
+  rightHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
@@ -55,7 +55,7 @@ void chainFist() {
     c.radius = map(c.radius, frontHand, backHand, 30, 1);
   }
   for (Chain c : chains) {
-    println("RADIUS= " +c.radius);
+
     c.display();
   }
   prightHand = toWorld(rightHand());
