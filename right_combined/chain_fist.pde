@@ -20,7 +20,7 @@ float frontHand =350.0;
 float backHand  = 600.0;
 
 PVector prightHand = new PVector(0, 0, 0);
-
+int scissorCounting = 0;
 void chainFistSetup() {
   gap = int(width / chainNum);
   // Initialize the physics world
@@ -49,7 +49,7 @@ void chainFist() {
   }
   println("chainZ = " + toWorld(rightHand()).z);
   for (Chain c : chains) {
-    c.updateTail((int)toWorld(rightHand()).x, (int)toWorld(rightHand()).y);
+    c.updateTail((width-(int)toWorld(rightHand()).x), (int)toWorld(rightHand()).y);
     c.radius = toWorld(rightHand()).z;
     //c.radius = c.radius/4;
     c.radius = map(c.radius, frontHand, backHand, 30, 1);
@@ -63,6 +63,12 @@ void chainFist() {
 }
 
 void detectMode() {
+    if (skeletonsTracked>1) {
+    scissorCounting++;
+  }
+  if (scissorCounting>200) {
+    categoryWekinator =2;
+  }
   //categoryWekinator 2= release
   //categoryWekinator 1 = hold, dragged
   if (speedCheckCounter>10) {
@@ -78,29 +84,5 @@ void detectMode() {
     }
     speedCheckCounter = 0;
   }  
-  //if (mode == 1) {
-  //  for (Chain c : chains) {
-  //    c.release();
-  //  }
-  //} else if (mode == 2) {
-  //  for (Chain c : chains) {
-  //    c.dragged=true;
-  //  }
-  //}
-}
 
-int mode = 0;
-void keyPressed() {
-  if (key == 'a' || key == 'A') {
-    scene = 1;
-  }
-  if (key == 'b' || key == 'B') {
-    scene = 2;
-  }
-  if (keyCode == UP) {
-    mode = 1;
-  }
-  if (keyCode == DOWN) {
-    mode = 2;
-  }
 }

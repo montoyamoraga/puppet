@@ -11,3 +11,6 @@ ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
 //float kinectScaling = 200.0;
 //scaling for full screen
 float kinectScaling = 400.0;
+
+//number of skeletons tracked
+int skeletonsTracked;

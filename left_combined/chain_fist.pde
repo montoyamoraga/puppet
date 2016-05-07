@@ -50,7 +50,7 @@ void chainFist() {
   }
   println("chainZ = " + toWorld(leftHand()).z);
   for (Chain c : chains) {
-    c.updateTail((int)toWorld(leftHand()).x, (int)toWorld(leftHand()).y);
+    c.updateTail((width-(int)toWorld(leftHand()).x), (int)toWorld(leftHand()).y);
     c.radius = toWorld(leftHand()).z;
     //c.radius = c.radius/4;
     c.radius = map(c.radius, frontHand, backHand, 30, 1);
@@ -59,7 +59,7 @@ void chainFist() {
     //println("RADIUS= " +c.radius);
     c.display();
   }
-  prightHand = toWorld(leftHand());
+  pleftHand = toWorld(leftHand());
   speedCheckCounter++;
 }
 
@@ -68,7 +68,7 @@ void detectMode() {
   if (skeletonsTracked>1) {
     scissorCounting++;
   }
-  if (scissorCounting>500) {
+  if (scissorCounting>200) {
     categoryWekinator =2;
   }
   //categoryWekinator 2= release
@@ -87,29 +87,5 @@ void detectMode() {
     speedCheckCounter = 0;
   }  
 
-  //if (mode == 1) {
-  //  for (Chain c : chains) {
-  //    c.release();
-  //  }
-  //} else if (mode == 2) {
-  //  for (Chain c : chains) {
-  //    c.dragged=true;
-  //  }
-  //}
-}
 
-int mode = 0;
-void keyPressed() {
-  if (key == 'a' || key == 'A') {
-    scene = 1;
-  }
-  if (key == 'b' || key == 'B') {
-    scene = 2;
-  }
-  if (keyCode == UP) {
-    mode = 1;
-  }
-  if (keyCode == DOWN) {
-    mode = 2;
-  }
 }
