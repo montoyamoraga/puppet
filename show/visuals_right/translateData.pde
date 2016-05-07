@@ -11,13 +11,21 @@ PVector spineBase = new PVector();
 PVector kneeLeft = new PVector();
 PVector kneeRight = new PVector();
 
+
+//vector at origin (0,0,0)
+PVector origin = new PVector(0, 0, 0);
+
+//float kinectScaling = 200.0;
+//scaling for full screen
+float scaling = 400.0;
+
+
 PVector leftHand() {
   if (trailingJointPositions.size()>0) {
     leftHand = trailingJointPositions.get(4);
     return leftHand;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+    return origin;
   }
 }
 
@@ -27,8 +35,7 @@ PVector leftTip() {
     leftTip = trailingJointPositions.get(6);
     return leftTip;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+    return origin;
   }
 }
 
@@ -38,8 +45,8 @@ PVector leftThumb() {
     leftThumb = trailingJointPositions.get(8);
     return leftThumb;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -48,8 +55,8 @@ PVector rightHand() {
     leftHand = trailingJointPositions.get(5);
     return leftHand;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -59,8 +66,8 @@ PVector rightTip() {
     leftTip = trailingJointPositions.get(7);
     return leftTip;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -70,8 +77,8 @@ PVector rightThumb() {
     leftThumb = trailingJointPositions.get(9);
     return leftThumb;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -80,8 +87,8 @@ PVector head() {
     head = trailingJointPositions.get(0);
     return head;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -90,8 +97,8 @@ PVector spineBase() {
     spineBase = trailingJointPositions.get(1);
     return spineBase;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
@@ -100,8 +107,7 @@ PVector kneeLeft() {
     kneeLeft = trailingJointPositions.get(2);
     return kneeLeft;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+    return origin;
   }
 }
 
@@ -110,45 +116,22 @@ PVector kneeRight() {
     kneeRight = trailingJointPositions.get(3);
     return kneeRight;
   } else {
-    PVector zero = new PVector(0, 0, 0);
-    return zero;
+
+    return origin;
   }
 }
 
 
 
 
-//differences, distances, also what we send to wekinator to analyse
-//___________________________________________________________________________
-float lDisHandTip ;
-float lDisHandThumb ;
-float lDisTipThumb ;
-
-//distance between left hand and left tip
-float lDisHandTip() {
-  lDisHandTip = PVector.dist( leftHand(), leftTip());
-  return lDisHandTip;
-}
-
-//distance between left hand and left thumb
-float lDisHandThumb() {
-  lDisHandThumb = PVector.dist( leftHand(), leftThumb());
-  return lDisHandThumb;
-}
-
-//distance between left tip and left thumb
-float lDisTipThumb() {
-  lDisTipThumb = PVector.dist( leftTip(), leftThumb());
-  return lDisTipThumb;
-}
-
-
 
 //to the visual world cordinate 
-//___________________________________________________________________________
 //expecting an input of raw data from kinect, a PVector
 PVector toWorld(PVector input) {
-  PVector output = new PVector(input.x* kinectScaling, input.y*kinectScaling, input.z*kinectScaling);
+  
+  PVector output = input.copy();
+  output.mult(scaling);
+  //PVector output = new PVector(input.x* scaling, input.y*scaling, input.z*scaling);
   output.y = height-(height/2+output.y);
   output.x -=width/2;
   output.x *= -1;

@@ -2,10 +2,10 @@
 
 int initParticleNum = 10;
 ArrayList<Particle> particles = new ArrayList<Particle>();
-Sun s;
+Sun sun;
 
 PVector leftHandSpeed = new PVector();
-PVector pleftHand = new PVector(0, 0, 0);
+PVector pleftHandPos = new PVector(0, 0, 0);
 
 int lowSpeedCount = 0;
 
@@ -28,32 +28,29 @@ int timer2 = 0;
 //variable specially for right side screen
 boolean coverMode = true;
 
-void spinningHurricaneSetup() {
+void scene01Setup() {
 
   for ( int i = 0; i< initParticleNum; i++) {
-    PVector pos = new PVector(random(0, width), random(0, height), random(-100, 100));
+    PVector pos = new PVector(0, random(0, height), random(-100, 100));
     particles.add(new Particle(random(1, 2), pos));
   }
 
-  s = new Sun(0, 0, 0);
+  sun = new Sun(0, 0, 0);
 }
 
-void spinningHurricane() {
+void scene01Update() {
   background(0);
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
   sphereDetail(8); 
-  float xDir = toWorld(leftHand()).x - pleftHand.x;
+  float xDir = toWorld(leftHand()).x - pleftHandPos.x;
   println("xDir= " + xDir);
 
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHand);
+  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHandPos);
   if (particles.size()>3000) {
     particles.remove(0);
   }
 
-  //  if (lowSpeedCount>300 && particles.size()>10) {
-  //    particles.remove(0);
-  //  }
 
   if (xDir>0.0) {
     particles.add(new Particle(random(1, 4), new PVector(random(width), random(height), random(100))));
@@ -63,11 +60,11 @@ void spinningHurricane() {
     }
   }
 
-  s.location = new PVector(introPos(toWorld(leftHand())).x, introPos(toWorld(leftHand())).y);
+  sun.location = new PVector(introPos(toWorld(leftHand())).x, introPos(toWorld(leftHand())).y);
   println("x!!!!!= "+introPos(toWorld(leftHand())).x);
 
   for (Particle p : particles) {
-    PVector force = s.getAttractForce(p);
+    PVector force = sun.getAttractForce(p);
 
     if (!posMiddle()) {
       force.mult(0);
@@ -95,8 +92,8 @@ void spinningHurricane() {
       }
     }
   }
-  s.display();
-  pleftHand = toWorld(leftHand());
+  sun.display();
+  pleftHandPos = toWorld(leftHand());
     if (coverMode) {
     background(0);
   }

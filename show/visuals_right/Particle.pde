@@ -1,3 +1,5 @@
+
+//based on shiffman's work
 class Particle {
   PVector loc;
   PVector vel;

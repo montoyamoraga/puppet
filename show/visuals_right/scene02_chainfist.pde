@@ -21,7 +21,10 @@ float backHand  = 600.0;
 
 PVector prightHand = new PVector(0, 0, 0);
 int scissorCounting = 0;
-void chainFistSetup() {
+
+int stringMode = 1;
+
+void scene02Setup() {
   gap = int(width / chainNum);
   // Initialize the physics world
   for (int i = 0; i<chainNum; i++) {
@@ -40,7 +43,7 @@ void chainFistSetup() {
   }
 }
 
-void chainFist() {
+void scene02Update() {
   leftHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
   background(255);
   detectMode();
@@ -67,17 +70,17 @@ void detectMode() {
     scissorCounting++;
   }
   if (scissorCounting>200) {
-    categoryWekinator =2;
+    stringMode =2;
   }
   //categoryWekinator 2= release
   //categoryWekinator 1 = hold, dragged
   if (speedCheckCounter>10) {
-    if (categoryWekinator == 2.0) {
+    if (stringMode == 2.0) {
       for (Chain c : chains) {
         c.release();
       }
     }
-    if (categoryWekinator == 1.0) {
+    if (stringMode == 1.0) {
       for (Chain c : chains) {
         c.dragged=true;
       }

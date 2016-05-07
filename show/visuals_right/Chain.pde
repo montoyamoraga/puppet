@@ -1,5 +1,9 @@
 // Reference to The Nature of Code / Toxiclibs example
 
+//import libraries for strings drawing
+import toxi.physics2d.*;
+import toxi.physics2d.behaviors.*;
+import toxi.geom.*;
 
 class Chain {
 
