@@ -36,6 +36,7 @@ void spinningHurricaneSetup() {
 }
 
 void spinningHurricane() {
+  println("center!= " +middleThreshold);
   background(0);
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
