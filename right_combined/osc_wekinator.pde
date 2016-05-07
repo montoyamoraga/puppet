@@ -19,7 +19,7 @@ void setupOSCWekinator() {
 void sendToWekinator() {
   OscMessage toWekinator = new OscMessage("/wek/inputs/");
   
-  toWekinator.add(leftHandSpeed.mag());
+  toWekinator.add(rightHandSpeed.mag());
   //toWekinator.add(lDisHandTip());
   //toWekinator.add(lDisHandThumb());
   //toWekinator.add(lDisTipThumb());
