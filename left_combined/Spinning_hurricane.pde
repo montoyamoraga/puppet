@@ -66,11 +66,6 @@ void spinningHurricane() {
 
   for (Particle p : particles) {
     PVector force = s.getAttractForce(p);
-    //if (lowSpeedCount<20) {
-    //  if (particles.size()>150) {
-    //    force.mult(-1);
-    //  }
-    //}
 
     if (!posMiddle()) {
       force.mult(0);

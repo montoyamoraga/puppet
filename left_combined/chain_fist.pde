@@ -68,7 +68,7 @@ void detectMode() {
   if (skeletonsTracked>1) {
     scissorCounting++;
   }
-  if (scissorCounting>500) {
+  if (scissorCounting>200) {
     categoryWekinator =2;
   }
   //categoryWekinator 2= release

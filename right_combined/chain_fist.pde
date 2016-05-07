@@ -20,7 +20,7 @@ float frontHand =350.0;
 float backHand  = 600.0;
 
 PVector prightHand = new PVector(0, 0, 0);
-
+int scissorCounting = 0;
 void chainFistSetup() {
   gap = int(width / chainNum);
   // Initialize the physics world
@@ -63,6 +63,12 @@ void chainFist() {
 }
 
 void detectMode() {
+    if (skeletonsTracked>1) {
+    scissorCounting++;
+  }
+  if (scissorCounting>200) {
+    categoryWekinator =2;
+  }
   //categoryWekinator 2= release
   //categoryWekinator 1 = hold, dragged
   if (speedCheckCounter>10) {
@@ -80,5 +86,3 @@ void detectMode() {
   }  
 
 }
-
-int mode = 0;

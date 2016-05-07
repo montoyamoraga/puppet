@@ -58,9 +58,9 @@ void draw() {
 
 
   if (scene == 1) {
-   spinningHurricane();
+  spinningHurricane();
   } else if (scene == 2) {
-   chainFist();
+  chainFist();
   }
   
   

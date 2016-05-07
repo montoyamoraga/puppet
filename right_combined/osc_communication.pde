@@ -29,5 +29,6 @@ void receiveOSCMax(OscMessage theOscMessage) {
       yPos[i] = theOscMessage.get(i*3+1).floatValue();
       zPos[i] = theOscMessage.get(i*3+2).floatValue();
     }
+       skeletonsTracked = theOscMessage.get(30).intValue();
   }
 }
