@@ -53,12 +53,12 @@ void draw() {
 
 
   updateValues();
-  
+
   if (isCalibrating) {
     printCalibX();
   }
-  
-  
+
+
   if (scene == 1) {
     spinningHurricane();
   } else if (scene == 2) {
@@ -90,10 +90,21 @@ void updateValues() {
       trailingJointPositions.remove(0);
     }
 
+    while (calibJointPositions.size() > 0) {
+      calibJointPositions.remove(0);
+    }
+
     //retrieve from OSC
-    for (int i = 0; i < 10; i++) {
-      PVector aux = new PVector(xPos[i], yPos[i], zPos[i]);
-      trailingJointPositions.add(aux);
+    if (isRunning == true) {
+      for (int i = 0; i < 10; i++) {
+        PVector aux = new PVector(xPos[i], yPos[i], zPos[i]);
+        trailingJointPositions.add(aux);
+      }
+    } else if (isCalibrating == true) {
+      for (int i = 0; i < 5; i++) {
+        PVector aux = new PVector(xCalib[i], yCalib[i], zCalib[i]);
+        calibJointPositions.add(aux);
+      }
     }
   }
 }

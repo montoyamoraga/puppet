@@ -5,8 +5,6 @@ import netP5.*;
 boolean isRunning;
 boolean isCalibrating;
 
-
-
 //declare object for communication
 OscP5 kinectData;
 

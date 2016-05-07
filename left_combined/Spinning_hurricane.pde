@@ -20,7 +20,6 @@ float depthThreshold  = 400.0; // less than this depthThreshold, closer to the a
 
 float zoneEdge = 280.0;
 
-
 int isCenterCounter = 0;
 int timer = 0;
 int timer2 = 0;

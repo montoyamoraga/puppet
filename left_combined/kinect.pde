@@ -7,6 +7,7 @@ KJoint[] joints;
 int trailingJointIndex;
 ArrayList<KSkeleton> skeletonArray = new ArrayList<KSkeleton>();
 ArrayList<PVector> trailingJointPositions = new ArrayList<PVector>();
+ArrayList<PVector> calibJointPositions = new ArrayList<PVector>();
 
 //float kinectScaling = 200.0;
 //scaling for full screen

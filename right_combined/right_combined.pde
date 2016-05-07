@@ -34,7 +34,6 @@ void setup() {
   
   defaultValues();
   
-  
   smooth();
   spinningHurricaneSetup();
   chainFistSetup();

@@ -95,6 +95,5 @@ class Chain {
     stroke(0);
     fill(0);
     ellipse(tail.x, tail.y, radius*2, radius*2);
-
   }
 }
