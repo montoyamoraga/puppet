@@ -92,6 +92,7 @@ class Chain {
       VerletParticle2D p1 = physics.particles.get(i);
       VerletParticle2D p2 = physics.particles.get(i+1);
       stroke(0);
+      strokeWeight(3);
       line(p1.x, p1.y, p2.x, p2.y);
     }
 

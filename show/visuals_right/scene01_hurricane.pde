@@ -4,13 +4,9 @@ int initParticleNum = 10;
 ArrayList<Particle> particles = new ArrayList<Particle>();
 Sun sun;
 
-PVector leftHandSpeed = new PVector();
-PVector pleftHandPos = new PVector(0, 0, 0);
+PVector rightHandSpeed = new PVector();
+PVector prightHandPos = new PVector(0, 0, 0);
 
-int lowSpeedCount = 0;
-
-
-float speedThreshold = 40;
 boolean posMiddle = false;
 
 //zoned ared definition
@@ -43,11 +39,11 @@ void scene01Update() {
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
   sphereDetail(8); 
-  float xDir = toWorld(leftHand()).x - pleftHandPos.x;
-  println("xDir= " + xDir);
+  float xDir = toWorld(avgRightHand()).x - prightHandPos.x;
+ // println("xDir= " + xDir);
 
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHandPos);
-  if (particles.size()>3000) {
+  rightHandSpeed = PVector.sub(toWorld(avgRightHand()), prightHandPos);
+  if (particles.size()>2000) {
     particles.remove(0);
   }
 
@@ -55,13 +51,13 @@ void scene01Update() {
   if (xDir>0.0) {
     particles.add(new Particle(random(1, 4), new PVector(random(width), random(height), random(100))));
     for (Particle p : particles) {
-      p.applyForce(leftHandSpeed);
+      p.applyForce(rightHandSpeed);
       p.update();
     }
   }
 
-  sun.location = new PVector(introPos(toWorld(leftHand())).x, introPos(toWorld(leftHand())).y);
-  println("x!!!!!= "+introPos(toWorld(leftHand())).x);
+  sun.location = new PVector(introPos(toWorld(avgRightHand())).x, introPos(toWorld(avgRightHand())).y);
+  println("x!!!!!= "+introPos(toWorld(avgRightHand())).x);
 
   for (Particle p : particles) {
     PVector force = sun.getAttractForce(p);
@@ -93,7 +89,7 @@ void scene01Update() {
     }
   }
   sun.display();
-  pleftHandPos = toWorld(leftHand());
+  prightHandPos = toWorld(avgRightHand());
     if (coverMode) {
     background(0);
   }
@@ -105,7 +101,7 @@ void scene01Update() {
 // put the postision which is already translated by the toWorld function as the perameter
 PVector introPos(PVector input) {
   PVector output = new PVector(input.x, input.y, input.z);
-  float m = map(input.x, 0.0, width/2, 0.0, width);
+  float m = map(input.x, width/4, width/2, 0.0, width);
   output.x = m;
   return output;
 }
@@ -113,9 +109,9 @@ PVector introPos(PVector input) {
 boolean posMiddle() {
   float zoneWidth = abs(zoneEdge - middleThreshold);
   //in the scope, declare the center area zone
-  if (toWorld(leftHand()).x <= (middleThreshold+zoneWidth) 
-    && toWorld(leftHand()).x>=(middleThreshold-zoneWidth)
-    &&toWorld(leftHand()).z>=depthThreshold) {
+  if (toWorld(avgLeftHand()).x <= (middleThreshold+zoneWidth) 
+    && toWorld(avgLeftHand()).x>=(middleThreshold-zoneWidth)
+    &&toWorld(avgLeftHand()).z>=depthThreshold) {
     posMiddle = true;
     isCenterCounter++;
     println("zoned!!!!");

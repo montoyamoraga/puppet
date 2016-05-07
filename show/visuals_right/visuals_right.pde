@@ -29,9 +29,9 @@ void draw() {
 
   updateValues();
   if (scene == 1) {
-    scene01Update();
+   scene01Update();
   } else if (scene == 2) {
-    scene02Update();
+   scene02Update();
   }
   /*
   //drawing all the joints

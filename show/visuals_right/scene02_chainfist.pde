@@ -44,24 +44,24 @@ void scene02Setup() {
 }
 
 void scene02Update() {
-  leftHandSpeed = PVector.sub(toWorld(rightHand()), prightHand);
+  rightHandSpeed = PVector.sub(toWorld(avgRightHand()), prightHand);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
-  println("chainZ = " + toWorld(rightHand()).z);
+
   for (Chain c : chains) {
-    c.updateTail((width-(int)toWorld(rightHand()).x), (int)toWorld(rightHand()).y);
-    c.radius = toWorld(rightHand()).z;
+    c.updateTail((width-(int)toWorld(avgRightHand()).x), (int)toWorld(avgRightHand()).y);
+    c.radius = toWorld(avgRightHand()).z;
     //c.radius = c.radius/4;
-    c.radius = map(c.radius, frontHand, backHand, 30, 1);
+    c.radius = map(c.radius, frontHand, backHand, 15, 1);
   }
   for (Chain c : chains) {
     println("RADIUS= " +c.radius);
     c.display();
   }
-  prightHand = toWorld(rightHand());
+  prightHand = toWorld(avgRightHand());
   speedCheckCounter++;
 }
 

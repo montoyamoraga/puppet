@@ -11,6 +11,8 @@ PVector spineBase = new PVector();
 PVector kneeLeft = new PVector();
 PVector kneeRight = new PVector();
 
+PVector avgRightHand = new PVector();
+PVector avgLeftHand = new PVector();
 
 //vector at origin (0,0,0)
 PVector origin = new PVector(0, 0, 0);
@@ -122,7 +124,21 @@ PVector kneeRight() {
 }
 
 
+PVector avgRightHand() {
+  PVector leftHandCopy = rightHand().copy();
+  avgRightHand.add(leftHandCopy.mult(0.10));
+  avgRightHand = avgRightHand.mult(0.90);
 
+  return avgRightHand;
+}
+
+PVector avgLeftHand() {
+  PVector leftHandCopy = leftHand().copy();
+  avgLeftHand.add(leftHandCopy.mult(0.10));
+  avgLeftHand = avgLeftHand.mult(0.90);
+
+  return avgLeftHand;
+}
 
 
 //to the visual world cordinate 
