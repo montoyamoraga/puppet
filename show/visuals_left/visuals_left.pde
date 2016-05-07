@@ -14,8 +14,8 @@ void setup() {
 
   defaultValues();
   smooth();
-  spinningHurricaneSetup();
-  chainFistSetup();
+  scene01Setup();
+  scene02Setup();
   setupOSC();
 }
 
@@ -33,9 +33,9 @@ void draw() {
 
 
   if (scene == 1) {
-  spinningHurricane();
+  scene01Update();
   } else if (scene == 2) {
-  chainFist();
+  scene02Update();
   }
   
   

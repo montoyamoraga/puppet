@@ -1,4 +1,4 @@
-//scene 2
+//scene 02
 
 // Reference to physics "world" (2D)
 VerletPhysics2D physics;
@@ -12,7 +12,7 @@ ArrayList<Chain> chains = new ArrayList<Chain>();
 //creat an arraylist to store all of our referenced physics world, each to a different chain
 ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 
-//our chains number
+// chains number
 int chainNum = 20;
 int gap = 0;
 int speedCheckCounter = 0;
@@ -25,7 +25,7 @@ float backHand  = 600.0;
 PVector prightHand = new PVector(0, 0, 0);
 int scissorCounting = 0;
 
-void chainFistSetup() {
+void scene02Setup() {
   gap = int(width / chainNum);
   // Initialize the physics world
   for (int i = 0; i<chainNum; i++) {
@@ -44,8 +44,8 @@ void chainFistSetup() {
   }
 }
 
-void chainFist() {
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHand);
+void scene02Update() {
+  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHandPos);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
@@ -62,7 +62,7 @@ void chainFist() {
     //println("RADIUS= " +c.radius);
     c.display();
   }
-  pleftHand = toWorld(leftHand());
+  pleftHandPos = toWorld(leftHand());
   speedCheckCounter++;
 }
 
@@ -72,7 +72,7 @@ void detectMode() {
     scissorCounting++;
   }
   if (scissorCounting>200) {
-    stringMode =2;
+    stringMode = 2;
   }
   //stringMode 2= release
   //stringMode 1 = hold, dragged
@@ -84,7 +84,7 @@ void detectMode() {
     }
     if (stringMode == 1) {
       for (Chain c : chains) {
-        c.dragged=true;
+        c.dragged = true;
       }
     }
     speedCheckCounter = 0;
