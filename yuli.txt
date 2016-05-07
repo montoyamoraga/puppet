@@ -11,3 +11,6 @@ git push
 
 to check if everything is ok
 git status
+
+to quit vim
+:q!
