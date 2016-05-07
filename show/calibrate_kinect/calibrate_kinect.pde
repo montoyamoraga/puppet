@@ -68,7 +68,7 @@ void draw() {
 
   if (isCalibrating) {
     //get data from Kinect
-    //getKinectData();
+    getKinectData();
     calibrationRoutine();
 
     if (calibrationReady) {
