@@ -52,7 +52,7 @@ void setupOSC() {
   }
 }
 
-//function for sendin the rawData from the computer 
+//function for sending the rawData from the computer 
 void sendRawData(NetAddress computer) {
 
   String header = "/rawData";
@@ -65,6 +65,8 @@ void sendRawData(NetAddress computer) {
     rawData.add(trailingJointPositions.get(i).y);
     rawData.add(trailingJointPositions.get(i).z);
   }
+  //append the umber of skeletons tracked
+  rawData.add(skeletonsTracked);
   //send the raw data to the desired computer
   //through the set port
    handlerOSC.send(rawData, computer);
