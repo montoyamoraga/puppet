@@ -9,8 +9,8 @@ int scene = 1;
 //full screen width is 1440
 void setup() {
   //size(1280, 800, P3D);
-  size(600, 400, P3D);
-  //fullScreen(P3D);
+  //size(600, 400, P3D);
+  fullScreen(P3D);
 
   defaultValues();
   smooth();
@@ -21,8 +21,8 @@ void setup() {
 
 void draw() {
   
-  
-  //println("x= " + toWorld(leftHand()).x);
+
+  println("x= " + toWorld(leftHand()).x);
 
 
   updateValues();
@@ -31,12 +31,12 @@ void draw() {
   //  printCalibX();
   //}
 
-
-  if (scene == 1) {
-  scene01Update();
-  } else if (scene == 2) {
-  scene02Update();
-  }
+ scene02Update();
+  //if (scene == 1) {
+  //scene01Update();
+  //} else if (scene == 2) {
+  //scene02Update();
+  //}
   
   
   /*

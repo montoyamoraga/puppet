@@ -45,29 +45,29 @@ void scene02Setup() {
 }
 
 void scene02Update() {
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHandPos);
+  leftHandSpeed = PVector.sub(toWorld(avgLeftHand()), pleftHandPos);
   background(255);
   detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
-  println("chainZ = " + toWorld(leftHand()).z);
+
   for (Chain c : chains) {
-    c.updateTail((width-(int)toWorld(leftHand()).x), (int)toWorld(leftHand()).y);
-    c.radius = toWorld(leftHand()).z;
+    c.updateTail((width-(int)toWorld(avgLeftHand()).x), (int)toWorld(avgLeftHand()).y);
+    c.radius = toWorld(avgLeftHand()).z;
     //c.radius = c.radius/4;
-    c.radius = map(c.radius, frontHand, backHand, 30, 1);
+    c.radius = map(c.radius, frontHand, backHand, 15, 1);
   }
   for (Chain c : chains) {
     //println("RADIUS= " +c.radius);
     c.display();
   }
-  pleftHandPos = toWorld(leftHand());
+  pleftHandPos = toWorld(avgLeftHand());
   speedCheckCounter++;
 }
 
 void detectMode() {
-  println("scissorCounting = "+scissorCounting);
+
   if (skeletonsTracked>1) {
     scissorCounting++;
   }

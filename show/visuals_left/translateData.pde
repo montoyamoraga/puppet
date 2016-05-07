@@ -12,6 +12,8 @@ PVector spineBase = new PVector();
 PVector kneeLeft = new PVector();
 PVector kneeRight = new PVector();
 
+PVector avgLeftHand = new PVector(0,0,0);
+
 //vector at origin (0,0,0)
 PVector origin = new PVector(0, 0, 0);
 
@@ -116,10 +118,18 @@ PVector rightThumb() {
 }
 
 
+PVector avgLeftHand() {
+  PVector leftHandCopy = leftHand().copy();
+  avgLeftHand.add(leftHandCopy.mult(0.10));
+  avgLeftHand = avgLeftHand.mult(0.90);
+
+  return avgLeftHand;
+}
+
+
 //to the visual world cordinate 
 //expecting an input of raw data from kinect, a PVector
-PVector toWorld(PVector input) {
-  
+PVector toWorld(PVector input) { 
   PVector output = input.copy();
   output.mult(scaling);
   //PVector output = new PVector(input.x* scaling, input.y*scaling, input.z*scaling);

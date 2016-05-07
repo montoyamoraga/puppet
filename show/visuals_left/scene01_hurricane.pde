@@ -40,16 +40,16 @@ void scene01Setup() {
 }
 
 void scene01Update() {
-  println("center!= " +middleThreshold);
+  //println("center!= " +middleThreshold);
   background(0);
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
   sphereDetail(8); 
-  float xDir = toWorld(leftHand()).x - pleftHandPos.x;
-  println("xDir= " + xDir);
+  float xDir = toWorld(avgLeftHand()).x - pleftHandPos.x;
 
-  leftHandSpeed = PVector.sub(toWorld(leftHand()), pleftHandPos);
-  if (particles.size()>3000) {
+
+  leftHandSpeed = PVector.sub(toWorld(avgLeftHand()), pleftHandPos);
+  if (particles.size()>2000) {
     particles.remove(0);
   }
 
@@ -61,8 +61,8 @@ void scene01Update() {
     }
   }
 
-  sun.location = new PVector(introPos(toWorld(leftHand())).x, introPos(toWorld(leftHand())).y);
-  println("x!!!!!= "+introPos(toWorld(leftHand())).x);
+  sun.location = new PVector(introPos(toWorld(avgLeftHand())).x, introPos(toWorld(avgLeftHand())).y);
+  println("x!!!!!= "+introPos(toWorld(avgLeftHand())).x);
 
   for (Particle p : particles) {
     PVector force = sun.getAttractForce(p);
@@ -94,7 +94,7 @@ void scene01Update() {
   }
   
   sun.display();
-  pleftHandPos = toWorld(leftHand());
+  pleftHandPos = toWorld(avgLeftHand());
 }
 
 //using spine instead of hand pos
@@ -103,7 +103,7 @@ void scene01Update() {
 // put the postision which is already translated by the toWorld function as the perameter
 PVector introPos(PVector input) {
   PVector output = new PVector(input.x, input.y, input.z);
-  float m = map(input.x, 0.0, width/2, 0.0, width);
+  float m = map(input.x, width/4, width/2, 0.0, width);
   output.x = m;
   return output;
 }
@@ -111,9 +111,9 @@ PVector introPos(PVector input) {
 boolean posMiddle() {
   float zoneWidth = abs(zoneEdge - middleThreshold);
   //in the scope, declare the center area zone
-  if (toWorld(leftHand()).x <= (middleThreshold+zoneWidth) 
-    && toWorld(leftHand()).x>=(middleThreshold-zoneWidth)
-    &&toWorld(leftHand()).z>=depthThreshold) {
+  if (toWorld(avgLeftHand() ).x <= (middleThreshold+zoneWidth) 
+    && toWorld(avgLeftHand() ).x>=(middleThreshold-zoneWidth)
+    &&toWorld(avgLeftHand()).z>=depthThreshold) {
     posMiddle = true;
     isCenterCounter++;
     println("zoned!!!!");

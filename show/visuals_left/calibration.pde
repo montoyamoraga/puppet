@@ -27,13 +27,7 @@ void defaultValues() {
   //backHand  = 600.0;
 }
 
-void printCalibX() {
-  
-  for (int i = 0; i < xCalib.length; i++) {
-    println(xCalib[i]);
-  }
-  
-}
+
 
 /*
 void calibration() {

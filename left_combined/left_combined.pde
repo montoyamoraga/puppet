@@ -35,8 +35,8 @@ float[] zCalib = new float[5];
 //full screen width is 1440
 void setup() {
   //size(1280, 800, P3D);
-  size(600, 400, P3D);
-  //fullScreen(P3D);
+  //size(600, 400, P3D);
+  fullScreen(P3D);
 
   defaultValues();
   smooth();
