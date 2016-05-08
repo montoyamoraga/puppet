@@ -1,8 +1,8 @@
-PVector centerCorner = new PVector(-0.12,-1.39,4.3);
-PVector centerFront = new PVector(-0.24,-0.03,2.77);
-PVector leftCorner = new PVector(0.56,-0.40,4.34);
-PVector front_Hand = new PVector(-0.15,-0.31,2.38);
-PVector back_Hand = new PVector(-0.36,-0.22,3.18);
+PVector centerCorner = new PVector(-0.08,-1.50,4.35);
+PVector centerFront = new PVector(-0.16,-0.02,2.74);
+PVector leftCorner = new PVector(0.05,-0.46,4.45);
+PVector front_Hand = new PVector(-0.07,-0.55,2.40);
+PVector back_Hand = new PVector(-0.21,-0.08,3.10);
 
 void defaultValues() {
   //intro part

@@ -3,13 +3,12 @@
 //by yuli cai, aaron montoya donald shorter 
 //april-may 2016
 
-
-
 //switching from intro to the second scene
 int scene = 1;
 
 //full screen width is 1440
 void setup() {
+  noCursor();
   //size(1280, 800, P3D);
   //size(600, 400, P3D);
   fullScreen(P3D);
