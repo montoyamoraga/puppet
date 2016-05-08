@@ -87,6 +87,8 @@ void getKinectData() {
         // Get the PVector containing the xyz position of the joint
         trailingJointPositions.add(trailingJoint.getPosition().copy());
       }
+      
+      println("left hand = "+trailingJointPositions.get(4));
     }
   }
   popMatrix();
