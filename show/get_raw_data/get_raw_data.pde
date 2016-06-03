@@ -1,3 +1,4 @@
+//final version
 //choreographic interventions
 //final project
 //by yuli cai, aaron montoya donald shorter 
@@ -10,9 +11,9 @@ int computers = 3;
 String[] ips = new String[3];
 
 //declare and define the ip addresses used
-String ipYuliVisualsLeft = "192.168.1.50";
-String ipAaronVisualsRight = "192.168.1.31";
-String ipAaronAudio = "172.16.219.239";
+String ipYuliVisualsLeft = "172.17.76.141";
+String ipAaronVisualsRight = "172.17.44.169";
+String ipAaronAudio = "172.17.78.225";
 
 //setup loop
 void setup() {

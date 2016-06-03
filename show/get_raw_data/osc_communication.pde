@@ -46,13 +46,13 @@ void setupOSC() {
   handlerOSC = new OscP5(this, receivingPort);
 
   //define net addresses for other computers
-  
+
   for (int i = 0; i < addresses.length; i++) {
-    addresses[i] = new NetAddress(ips[i],sendingPort);
+    addresses[i] = new NetAddress(ips[i], sendingPort);
   }
 }
 
-//function for sending the rawData from the computer 
+//function for sendin the rawData from the computer 
 void sendRawData(NetAddress computer) {
 
   String header = "/rawData";
@@ -65,9 +65,9 @@ void sendRawData(NetAddress computer) {
     rawData.add(trailingJointPositions.get(i).y);
     rawData.add(trailingJointPositions.get(i).z);
   }
-  //append the umber of skeletons tracked
+  //append the number of skeletons tracked
   rawData.add(skeletonsTracked);
   //send the raw data to the desired computer
   //through the set port
-   handlerOSC.send(rawData, computer);
+  handlerOSC.send(rawData, computer);
 }
