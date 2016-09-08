@@ -19,3 +19,5 @@ questions
 * what are your technical skills?
 
 * do you want just the visuals? the sound too?
+
+* schedule for meeting for a rehearsal
