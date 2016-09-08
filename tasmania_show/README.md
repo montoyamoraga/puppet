@@ -1,5 +1,14 @@
 ## tasmania show
 
+to do:
+
+* setup new msi computer
+* install processing and max msp on it
+* check if aaron's mac mini works for this
+* adapt to one screen
+* adapt for retro and forward projection
+
+
 questions
 
 * who is gonna perform?
