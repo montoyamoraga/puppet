@@ -1,4 +1,4 @@
-## awkward moves with audiovisuals
+## itp choreographic interventions
 
 by Yuli Cai, Aaron Montoya and Donald Shorter
 
