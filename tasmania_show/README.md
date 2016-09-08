@@ -8,6 +8,8 @@ questions
 
 * what kinect?
 
+* what is the budget?
+
 * how many screens / projectors?
 
 * can we give you a mac mini?

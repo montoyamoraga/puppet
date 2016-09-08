@@ -1,9 +1,7 @@
 ## itp choreographic interventions
 
-by Yuli Cai, Aaron Montoya and Donald Shorter
+by yuli cai, aaron montoya-moraga and donald shorter
 
 for the Choreographic Interventions class
 
-taught by Mimi Yin at NYU
-
-2016 Spring Semester
+taught by mimi yin at nyu itp during the 2016 spring semester
