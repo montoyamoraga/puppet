@@ -22,8 +22,9 @@ the original piece ran on 4 computers:
 the following software and its libraries were used:
 
 * processing 3: oscp5, toxiclibs, KinectPV2
+
 note:
-- The library toxiclibs could be barely found online now, so we include it in this GitHub page
-- The library KinectPV2 from the processing add library page won't work with it, so we also include it in this page.
+1. The library toxiclibs could be barely found online now, so we include it in this GitHub page
+2. The library KinectPV2 from the processing add library page won't work with it, so we also include it in this page.
 
 * max msp 7:
