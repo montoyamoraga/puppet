@@ -4,7 +4,7 @@
 //april-may 2016
 
 //switching from intro to the second scene
-int scene = 1;
+int scene = 2;
 
 //full screen width is 1440
 void setup() {

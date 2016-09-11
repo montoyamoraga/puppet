@@ -1,4 +1,4 @@
-//raw data from windows machine
+ //raw data from windows machine
 
 //pvectors for storing raw data from kinect
 PVector leftHand = new PVector();
@@ -134,7 +134,7 @@ PVector toWorld(PVector input) {
   output.mult(scaling);
   //PVector output = new PVector(input.x* scaling, input.y*scaling, input.z*scaling);
   output.y = height-(height/2+output.y);
-  output.x -=width/2;
-  output.x *= -1;
+  output.x +=width/2;
+  //output.x *= -1;
   return output;
 }

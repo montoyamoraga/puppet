@@ -4,7 +4,7 @@
 //april-may 2016
 
 //variable for choosing scene
-int scene = 1;
+int scene = 2;
 
 //full screen width is 1440
 void setup() {

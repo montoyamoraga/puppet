@@ -47,7 +47,7 @@ void scene02Setup() {
 void scene02Update() {
   leftHandSpeed = PVector.sub(toWorld(avgLeftHand()), pleftHandPos);
   background(255);
-  detectMode();
+  //detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
