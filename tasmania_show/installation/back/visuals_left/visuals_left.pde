@@ -1,7 +1,8 @@
-//choreographic interventions
-//final project
+//puppet
 //by yuli cai, aaron montoya donald shorter 
-//april-may 2016
+//second version
+//for salamanca moves festival
+//september  2016
 
 //variable for choosing scene
 int scene = 1;
@@ -21,10 +22,8 @@ void setup() {
 }
 
 void draw() {
-  
 
   println("x= " + toWorld(leftHand()).x);
-
 
   updateValues();
 
@@ -38,7 +37,6 @@ void draw() {
   } else if (scene == 2) {
   scene02Update();
   }
-  
   
   /*
   //drawing all the joints
