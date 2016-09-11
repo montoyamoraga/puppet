@@ -21,6 +21,6 @@ the original piece ran on 4 computers:
 
 the following software and its libraries were used:
 
-* processing 3: oscp5, toxiclibs, 
+* processing 3: oscp5, toxiclibs,
 
-* max msp:
+* max msp 7:
