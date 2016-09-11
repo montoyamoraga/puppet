@@ -1,7 +1,7 @@
-## itp choreographic interventions
+# puppet
 
-by yuli cai, aaron montoya-moraga and donald shorter
+an audiovisual reactive dance piece by yuli cai, aaron montoya-moraga and donald shorter
 
-for the Choreographic Interventions class
+done at the choreographic interventions class at nyu itp during the 2016 spring semester, taught by mimi yin.
 
-taught by mimi yin at nyu itp during the 2016 spring semester
+it has been performed during the final show of the choreographic interventions class and at the salamanca moves festival.
