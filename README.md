@@ -15,7 +15,7 @@ the original piece ran on 4 computers:
 1. msi windows machine: connected to a kinect v2 and running processing 3.
 * macbook: running processing 3 and creating visuals for the left screen, according to the data received.
 * macbook: running processing 3 and creating visuals for the right screen, according to the data received.
-* macbook: running max msp 7 and creating visuals for the left screen, according to the data received.
+* macbook: running max msp 7 and manipulating audio, fed to two ue boom 2 bluetooth speakers.
 
 ## software and libraries
 
