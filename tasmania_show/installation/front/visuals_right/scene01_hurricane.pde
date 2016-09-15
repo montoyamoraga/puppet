@@ -1,37 +1,32 @@
-//scene 01: intro
+//scene 1: intro
 
-//initial number of particles
 int initParticleNum = 10;
-
-//declare array of particles
 ArrayList<Particle> particles = new ArrayList<Particle>();
-
-//declare sun object
 Sun sun;
 
-//declare pvector for left hand speed
-PVector leftHandSpeed = new PVector();
-//declare pvector for previous left hand speed
-PVector pleftHandPos = new PVector(0, 0, 0);
+PVector rightHandSpeed = new PVector();
+PVector prightHandPos = new PVector(0, 0, 0);
 
-//zoned area definition
+boolean posMiddle = false;
+
+//zoned ared definition
 //need to be calibrated in the scene, when facing the kinect, what x pos it is to set the middle line
 float middleThreshold = 260.0; //the position where dancer facing straight to the middle of kinect
 float depthThreshold  = 400.0; // less than this depthThreshold, closer to the audience
 
-int isCenterCounter = 0;
-boolean posMiddle = false;
-
-//CALIBRATE!
 float zoneEdge = 280.0;
 
-//declare timers
+
+int isCenterCounter = 0;
 int timer = 0;
 int timer2 = 0;
 
+//variable specially for right side screen
+boolean coverMode = true;
+
 void scene01Setup() {
 
-  for (int i = 0; i< initParticleNum; i++) {
+  for ( int i = 0; i< initParticleNum; i++) {
     PVector pos = new PVector(0, random(0, height), random(-100, 100));
     particles.add(new Particle(random(1, 2), pos));
   }
@@ -40,29 +35,29 @@ void scene01Setup() {
 }
 
 void scene01Update() {
-  //println("center!= " +middleThreshold);
   background(0);
   //spotLight(255, 255, 255, width/2, height/2, 1000, 0, 0, -1, PI/4, 1);
   lights();
   sphereDetail(8); 
-  float xDir = toWorld(avgLeftHand()).x - pleftHandPos.x;
+  float xDir = toWorld(avgRightHand()).x - prightHandPos.x;
+ // println("xDir= " + xDir);
 
-
-  leftHandSpeed = PVector.sub(toWorld(avgLeftHand()), pleftHandPos);
+  rightHandSpeed = PVector.sub(toWorld(avgRightHand()), prightHandPos);
   if (particles.size()>2000) {
     particles.remove(0);
   }
 
+
   if (xDir>0.0) {
     particles.add(new Particle(random(1, 4), new PVector(random(width), random(height), random(100))));
     for (Particle p : particles) {
-      p.applyForce(leftHandSpeed.mult(-1));
+      p.applyForce(rightHandSpeed);
       p.update();
     }
   }
 
-  sun.location = new PVector(introPos(toWorld(avgLeftHand())).x, introPos(toWorld(avgLeftHand())).y);
-  println("x!!!!!= "+introPos(toWorld(avgLeftHand())).x);
+  sun.location = new PVector(introPos(toWorld(avgRightHand())).x, introPos(toWorld(avgRightHand())).y);
+  println("x!!!!!= "+introPos(toWorld(avgRightHand())).x);
 
   for (Particle p : particles) {
     PVector force = sun.getAttractForce(p);
@@ -75,6 +70,7 @@ void scene01Update() {
   }
 
   if (!posMiddle()&&isCenterCounter>0) {
+    coverMode = false;
     timer++;
     println("timer= " +timer);
     if (timer>150) {
@@ -92,9 +88,11 @@ void scene01Update() {
       }
     }
   }
-  
   sun.display();
-  pleftHandPos = toWorld(avgLeftHand());
+  prightHandPos = toWorld(avgRightHand());
+    if (coverMode) {
+    background(0);
+  }
 }
 
 //using spine instead of hand pos
@@ -111,8 +109,8 @@ PVector introPos(PVector input) {
 boolean posMiddle() {
   float zoneWidth = abs(zoneEdge - middleThreshold);
   //in the scope, declare the center area zone
-  if (toWorld(avgLeftHand() ).x <= (middleThreshold+zoneWidth) 
-    && toWorld(avgLeftHand() ).x>=(middleThreshold-zoneWidth)
+  if (toWorld(avgLeftHand()).x <= (middleThreshold+zoneWidth) 
+    && toWorld(avgLeftHand()).x>=(middleThreshold-zoneWidth)
     &&toWorld(avgLeftHand()).z>=depthThreshold) {
     posMiddle = true;
     isCenterCounter++;

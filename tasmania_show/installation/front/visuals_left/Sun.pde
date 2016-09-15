@@ -1,3 +1,5 @@
+//based on shiffman's work
+
 class Sun {
   float mass;
   PVector location;
