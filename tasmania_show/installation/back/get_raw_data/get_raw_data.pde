@@ -11,7 +11,7 @@ int computers = 2;
 String[] ips = new String[2];
 
 //declare and define the ip addresses used
-String ipWindows = "127.0.0.1";;
+String ipWindows = "127.0.0.1";
 String ipMacbook = "172.17.78.225";
 
 //setup loop
