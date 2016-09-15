@@ -1,6 +1,8 @@
+
+//manual calibration
 PVector centerCorner = new PVector(-0.08,-1.50,4.35);
 PVector centerFront = new PVector(-0.16,-0.02,2.74);
-PVector leftCorner = new PVector(0.05,-0.46,4.45);
+PVector leftCorner = new PVector(0.05,-0.46,4.45); //stretch the arm
 PVector front_Hand = new PVector(-0.07,-0.55,2.40);
 PVector back_Hand = new PVector(-0.21,-0.08,3.10);
 
@@ -25,21 +27,14 @@ void defaultValues() {
   //backHand  = 600.0;
 }
 
-void printCalibX() {
-  
-  for (int i = 0; i < xCalib.length; i++) {
-    println(xCalib[i]);
-  }
-  
-}
+
 
 /*
-centerCorner
- void calibration() {
- middleThreshold = toWorld(data1);
- depthThreshold = toWorld(data2);
- zoneEdge = toWorld(data3);
- frontHand = toWorld(data4);
- backHand = toWorld(data5);  
- }
- */
+void calibration() {
+  middleThreshold = toWorld(data1);
+  depthThreshold = toWorld(data2);
+  zoneEdge = toWorld(data3);
+  frontHand = toWorld(data4);
+  backHand = toWorld(data5);  
+}
+*/

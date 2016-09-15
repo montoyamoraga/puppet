@@ -1,5 +1,5 @@
-
 //based on shiffman's work
+
 class Particle {
   PVector loc;
   PVector vel;
@@ -66,7 +66,6 @@ class Particle {
       vel.z *= -0.7;
     }
   }
-
 
   void run() {
     update();
