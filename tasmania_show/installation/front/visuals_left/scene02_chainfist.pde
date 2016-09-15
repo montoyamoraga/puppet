@@ -1,10 +1,7 @@
-//scene 02
+//scene 2
 
 // Reference to physics "world" (2D)
 VerletPhysics2D physics;
-
-//string mode
-int stringMode = 1;
 
 //creat a arraylist to store all of our chains
 ArrayList<Chain> chains = new ArrayList<Chain>();
@@ -12,18 +9,20 @@ ArrayList<Chain> chains = new ArrayList<Chain>();
 //creat an arraylist to store all of our referenced physics world, each to a different chain
 ArrayList<VerletPhysics2D> physicWorlds = new ArrayList<VerletPhysics2D>();
 
-// chains number
+//our chains number
 int chainNum = 20;
 int gap = 0;
 int speedCheckCounter = 0;
 
 //variables that need to be calibrated
 //the z position of the left hand is connected to the size of the ellipse
-float frontHand = 350.0;
+float frontHand =350.0;
 float backHand  = 600.0;
 
 PVector prightHand = new PVector(0, 0, 0);
 int scissorCounting = 0;
+
+int stringMode = 1;
 
 void scene02Setup() {
   gap = int(width / chainNum);
@@ -45,50 +44,48 @@ void scene02Setup() {
 }
 
 void scene02Update() {
-  leftHandSpeed = PVector.sub(toWorld(avgLeftHand()), pleftHandPos);
+  rightHandSpeed = PVector.sub(toWorld(avgRightHand()), prightHand);
   background(255);
-  //detectMode();
+  detectMode();
   for (VerletPhysics2D p : physicWorlds) {
     p.update();
   }
 
   for (Chain c : chains) {
-    c.updateTail((width-(int)toWorld(avgLeftHand()).x), (int)toWorld(avgLeftHand()).y);
-    c.radius = toWorld(avgLeftHand()).z;
+    c.updateTail((width-(int)toWorld(avgRightHand()).x), (int)toWorld(avgRightHand()).y);
+    c.radius = toWorld(avgRightHand()).z;
     //c.radius = c.radius/4;
     c.radius = map(c.radius, frontHand, backHand, 15, 1);
   }
   for (Chain c : chains) {
-    //println("RADIUS= " +c.radius);
+    println("RADIUS= " +c.radius);
     c.display();
   }
-  pleftHandPos = toWorld(avgLeftHand());
+  prightHand = toWorld(avgRightHand());
   speedCheckCounter++;
 }
 
 void detectMode() {
-
-  if (skeletonsTracked>1) {
-    scissorCounting++;
-  }
-  if (scissorCounting>200) {
-    stringMode = 2;
-  }
-  //stringMode 2= release
-  //stringMode 1 = hold, dragged
+    //if (skeletonsTracked>1) {
+    //scissorCounting++;
+  //}
+//  //if (scissorCounting>200) {
+    //stringMode =2;
+  //}
+//  //categoryWekinator 2= release
+  //categoryWekinator 1 = hold, dragged
   if (speedCheckCounter>10) {
-    if (stringMode == 2) {
+    if (stringMode == 2.0) {
       for (Chain c : chains) {
         c.release();
       }
     }
-    if (stringMode == 1) {
+    if (stringMode == 1.0) {
       for (Chain c : chains) {
-        c.dragged = true;
+        c.dragged=true;
       }
     }
     speedCheckCounter = 0;
   }  
-
 
 }

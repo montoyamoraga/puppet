@@ -6,7 +6,7 @@ import netP5.*;
 OscP5 handlerOSC;
 
 //declare array to contain the ip addresses
-NetAddress[] addresses = new NetAddress[3];
+NetAddress[] addresses = new NetAddress[2];
 
 //declare sending and receiving port numbers
 int sendingPort;

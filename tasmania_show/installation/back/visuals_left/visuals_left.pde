@@ -1,10 +1,9 @@
-//puppet
+//choreographic interventions
+//final project
 //by yuli cai, aaron montoya donald shorter 
-//second version
-//for salamanca moves festival
-//september  2016
+//april-may 2016
 
-//variable for choosing scene
+//switching from intro to the second scene
 int scene = 2;
 
 //full screen width is 1440
@@ -15,29 +14,24 @@ void setup() {
   fullScreen(P3D);
 
   defaultValues();
+
   smooth();
   scene01Setup();
   scene02Setup();
   setupOSC();
+
 }
 
 void draw() {
+ // println("x= " + toWorld(leftHand()).x);
 
-  println("x= " + toWorld(leftHand()).x);
 
   updateValues();
-
-  //if (isCalibrating) {
-  //  printCalibX();
-  //}
-
-
   if (scene == 1) {
-  scene01Update();
+   scene01Update();
   } else if (scene == 2) {
-  scene02Update();
+   scene02Update();
   }
-  
   /*
   //drawing all the joints
    fill(255, 0, 0);
@@ -52,4 +46,5 @@ void draw() {
    ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
    ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
    */
+
 }

@@ -3,7 +3,7 @@
 //by yuli cai, aaron montoya donald shorter 
 //april-may 2016
 
-//switching from intro to the second scene
+//variable for choosing scene
 int scene = 2;
 
 //full screen width is 1440
@@ -14,24 +14,32 @@ void setup() {
   fullScreen(P3D);
 
   defaultValues();
-
   smooth();
   scene01Setup();
   scene02Setup();
   setupOSC();
-
 }
 
 void draw() {
- // println("x= " + toWorld(leftHand()).x);
+  
+
+  println("x= " + toWorld(leftHand()).x);
 
 
   updateValues();
+
+  //if (isCalibrating) {
+  //  printCalibX();
+  //}
+
+
   if (scene == 1) {
-   scene01Update();
+  scene01Update();
   } else if (scene == 2) {
-   scene02Update();
+  scene02Update();
   }
+  
+  
   /*
   //drawing all the joints
    fill(255, 0, 0);
@@ -46,5 +54,4 @@ void draw() {
    ellipse(toWorld(spineBase()).x, toWorld(spineBase()).y, 5, 5);
    ellipse(toWorld(head()).x, toWorld(head()).y, 10, 10);
    */
-
 }
