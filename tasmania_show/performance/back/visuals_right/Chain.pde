@@ -19,7 +19,7 @@ class Chain {
   // This is just the last particle in the ArrayList
   VerletParticle2D tail;
 
-  // Some variables for mouse dragging
+  //variables for mouse dragging
   PVector offset = new PVector();
   boolean dragged = false;
 
@@ -100,6 +100,5 @@ class Chain {
     stroke(0);
     fill(0);
     ellipse(tail.x, tail.y, radius*2, radius*2);
-
   }
 }
