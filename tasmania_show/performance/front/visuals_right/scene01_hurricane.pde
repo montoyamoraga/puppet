@@ -61,7 +61,7 @@ void scene01Update() {
     }
   }
 
-  sun.location = new PVector(introPos(toWorld(avgLeftHand())).x, introPos(toWorld(avgLeftHand())).y);
+  sun.location = new PVector(width-introPos(toWorld(avgLeftHand())).x, introPos(toWorld(avgLeftHand())).y);
   println("x!!!!!= "+introPos(toWorld(avgLeftHand())).x);
 
   for (Particle p : particles) {
