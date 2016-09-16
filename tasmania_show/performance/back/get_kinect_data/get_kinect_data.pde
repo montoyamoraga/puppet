@@ -5,10 +5,10 @@
 //september  2016
 
 //define the ip addresses of other computers used
-int computers = 2;
+int computers = 3;
 
 //declare array to contain the ip addresses
-String[] ips = new String[2];
+String[] ips = new String[3];
 
 //declare and define the ip addresses used
 String ipWindows = "127.0.0.1";
@@ -24,6 +24,7 @@ void setup() {
   //fill the ips arrays
   ips[0] = ipWindows;
   ips[1] = ipMacbook;
+  ips[2] = ipMacbook;
 
   //function for kinect setup
   setupKinect();

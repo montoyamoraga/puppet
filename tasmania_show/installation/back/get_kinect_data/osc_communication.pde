@@ -6,10 +6,11 @@ import netP5.*;
 OscP5 handlerOSC;
 
 //declare array to contain the ip addresses
-NetAddress[] addresses = new NetAddress[2];
+NetAddress[] addresses = new NetAddress[3];
 
 //declare sending and receiving port numbers
 int sendingPort;
+int sendingPortMax;
 int receivingPort;
 
 //declare strings for sending messages
@@ -38,6 +39,7 @@ void setupOSC() {
 
   //define sending and receiving port numbers
   sendingPort = 1993;
+  sendingPortMax = 2003;
   receivingPort = 5555;
 
   //receive
@@ -46,10 +48,10 @@ void setupOSC() {
   handlerOSC = new OscP5(this, receivingPort);
 
   //define net addresses for other computers
-
-  for (int i = 0; i < addresses.length; i++) {
-    addresses[i] = new NetAddress(ips[i], sendingPort);
-  }
+  addresses[0] = new NetAddress(ips[0], sendingPort);
+  addresses[1] = new NetAddress(ips[1], sendingPort);
+  addresses[2] = new NetAddress(ips[2], sendingPortMax);
+  
 }
 
 //function for sendin the rawData from the computer 
